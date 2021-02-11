@@ -83,3 +83,6 @@ C:\Users\Nico\Documents\DMCCode\DMCProjects\ExoticCars\ExoticCars\obj\Debug\netc
 C:\Users\Nico\Documents\DMCCode\DMCProjects\ExoticCars\ExoticCars\obj\Debug\netcoreapp3.1\Razor\Views\Customer\List.cshtml.g.cs
 C:\Users\Nico\Documents\DMCCode\DMCProjects\ExoticCars\ExoticCars\obj\Debug\netcoreapp3.1\Razor\Views\Product\List.cshtml.g.cs
 C:\Users\Nico\Documents\DMCCode\DMCProjects\ExoticCars\ExoticCars\obj\Debug\netcoreapp3.1\Razor\Views\Order\List.cshtml.g.cs
+C:\Users\Nico\Documents\DMCCode\DMCProjects\ExoticCars\ExoticCars\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Edit.cshtml.g.cs
+C:\Users\Nico\Documents\DMCCode\DMCProjects\ExoticCars\ExoticCars\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Create.cshtml.g.cs
+C:\Users\Nico\Documents\DMCCode\DMCProjects\ExoticCars\ExoticCars\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Delete.cshtml.g.cs

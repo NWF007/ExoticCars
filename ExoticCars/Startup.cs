@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using ExoticCars.Repositories;
 
 namespace ExoticCars
 {
@@ -29,6 +30,7 @@ namespace ExoticCars
             services.AddControllersWithViews();
             services.AddDbContext<ExoticCarContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

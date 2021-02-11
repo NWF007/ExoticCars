@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExoticCars.ViewModels
 {
-    public class CustomerListViewModel
+    public class CustomerViewModel
     {
         public IEnumerable<Customer> Customers { get; set; }
     }

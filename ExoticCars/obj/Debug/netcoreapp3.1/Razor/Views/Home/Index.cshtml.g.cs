@@ -26,8 +26,15 @@ using ExoticCars.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\Nico\Documents\DMCCode\DMCProjects\ExoticCars\ExoticCars\Views\_ViewImports.cshtml"
+using ExoticCars.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"601047e2305ad0f2e7bcb37ff384562a48897397", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6afa6e0ae656ab94d4984ca5709d195d2df1d758", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d92b278e1c5ee5632072b4ea9f2ed6c226f0492b", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

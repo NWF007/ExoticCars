@@ -11,24 +11,56 @@ namespace ExoticCars.Controllers
 {
     public class CustomerController : Controller
     {
+        private readonly ICustomerRepository customerRepository;
 
-        public CustomerController()
+        public CustomerController(ICustomerRepository customerRepository)
         {
+            this.customerRepository = customerRepository;
         }
-        public IActionResult List()
+        /*public IActionResult List()
         {
             ViewBag.Message = "Welcome Customers";
             return View();
-        }
+        }*/
 
-        /*public ViewResult List()
+        public ViewResult List()
         {
             IEnumerable<Customer> customers;
 
-            return View(new CustomerListViewModel
+            customers = customerRepository.GetCustomers;
+
+            return View(new CustomerViewModel
             {
-                Customer = customers
+                Customers = customers
             });
-        }*/
+        }
+
+        public IActionResult Edit()
+        {
+            ViewBag.Message = "Edit page";
+            return View();
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Customer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                customerRepository.AddCustomer(customer);
+                return RedirectToAction("List");
+            }
+            return View();
+        }
+
+        public IActionResult Delete(int customerId)
+        {
+            ViewBag.Message = "Delete page";
+            return View();
+        }
     }
 }

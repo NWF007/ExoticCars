@@ -1,1 +1,42 @@
-﻿<h1>@ViewBag.Message</h1>
+﻿@model CustomerViewModel
+<div class="row">
+    <div>
+        <h2>All Registered Customers</h2>
+    </div>
+    <div class="float-right">
+        <button class="btn btn-primary ml-5">Create</button>
+    </div>
+    </div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>PostalCode</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cust in Model.Customers)
+        {
+        <tr>
+            <td>@cust.FirstName</td>
+            <td>@cust.LastName</td>
+            <td>@cust.Phone</td>
+            <td>@cust.Address</td>
+            <td>@cust.City</td>
+            <td>@cust.PostalCode</td>
+            <td>
+                <button class="btn btn-danger mr-1">Details</button>
+                <button class="btn btn-info mr-1">Edit</button>
+                <button class="btn btn-primary mr-1">Delete</button>
+            </td>
+        </tr>
+        }
+
+    </tbody>  
+</table>

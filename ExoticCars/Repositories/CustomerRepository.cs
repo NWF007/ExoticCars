@@ -22,7 +22,8 @@ namespace ExoticCars.Repositories
             {
                 throw new ArgumentNullException(nameof(customer));
             }
-            dbContext.Add(customer);
+            dbContext.Customers.Add(customer);
+            dbContext.SaveChanges();
         }
 
         public bool CustomerExists(int orderId)
