@@ -53,16 +53,16 @@ namespace ExoticCars.DAL
             modelBuilder.Entity<Order>().HasData(new Order { OrderID = 6, CustomerID = 9, OrderDate = DateTime.Parse("2020-03-17"), Status = Order.status.OrderPlaced, Comments = "Car shipped from manufaturer" });
 
             // seed products
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 1, Name = "Land Rover", Model = "Defender 90", Price = 15000000, Year = "2018", EngineNo = "L22AM03790" });
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 2, Name = "Maserati", Model = "A6GCS/53", Price = 3500000, Year = "2020", EngineNo = "M22AM08524" });
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 3, Name = "Cadillac", Model = "XT5", Price = 3000000, Year = "2019", EngineNo = "C22AM03737" });
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 4, Name = "Jaguar", Model = "F-Type SVR", Price = 1000000, Year = "2020", EngineNo = "J22AM07894" });
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 5, Name = "BMW", Model = "BMW E36 M3", Price = 2000000, Year = "2020", EngineNo = "B22AM00247" });
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 6, Name = "Porsche", Model = "911 Carrera RS 3.0", Price = 3500000, Year = "2020", EngineNo = "P22AM08761" });
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 7, Name = "Ferarri", Model = "812 GTS", Price = 3800000, Year = "2020", EngineNo = "F22AM08520" });
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 8, Name = "Audi", Model = "Audi Q8", Price = 2000000, Year = "2020", EngineNo = "A22AM07419" });
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 9, Name = "Alfa Romeo", Model = "Giulia Quadrifoglio", Price = 1500000, Year = "2020", EngineNo = "AL2AM08719" });
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 10, Name = "Mercedez-Benz", Model = "AMG GT 63", Price = 2500000, Year = "2020", EngineNo = "MB2AM07531" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 1, Name = "Land Rover", Model = "Defender 90", SellingPrice = 15000000, CostPrice = 10000000, Year = "2018", EngineNo = "L22AM03790" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 2, Name = "Maserati", Model = "A6GCS/53", SellingPrice = 3500000, CostPrice = 25000000, Year = "2020", EngineNo = "M22AM08524" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 3, Name = "Cadillac", Model = "XT5", SellingPrice = 3000000, CostPrice = 27000000, Year = "2019", EngineNo = "C22AM03737" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 4, Name = "Jaguar", Model = "F-Type SVR", SellingPrice = 1000000, CostPrice = 9000000, Year = "2020", EngineNo = "J22AM07894" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 5, Name = "BMW", Model = "BMW E36 M3", SellingPrice = 2000000, CostPrice = 15000000, Year = "2020", EngineNo = "B22AM00247" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 6, Name = "Porsche", Model = "911 Carrera RS 3.0", SellingPrice = 3500000, CostPrice = 28000000, Year = "2020", EngineNo = "P22AM08761" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 7, Name = "Ferarri", Model = "812 GTS", SellingPrice = 3800000, CostPrice = 35000000, Year = "2020", EngineNo = "F22AM08520" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 8, Name = "Audi", Model = "Audi Q8", SellingPrice = 2000000, CostPrice = 15000000, Year = "2020", EngineNo = "A22AM07419" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 9, Name = "Alfa Romeo", Model = "Giulia Quadrifoglio", SellingPrice = 1500000, CostPrice = 12000000, Year = "2020", EngineNo = "AL2AM08719" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 10, Name = "Mercedez-Benz", Model = "AMG GT 63", SellingPrice = 2500000, CostPrice = 22000000, Year = "2020", EngineNo = "MB2AM07531" });
 
         }
 

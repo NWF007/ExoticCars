@@ -1,15 +1,69 @@
-﻿@page "{customerId}"
+﻿@*@page "{customerId:int?}"*@
 @model Customer
 
-<h2>@ViewBag.Message</h2>
-
-
-<h2>Delete!</h2>
 
 <div class="alert alert-danger">
-    Are you sure you want to delete @Model.FirstName?
-</div>
-<form method="post">
-    <button type="submit" class="btn btn-danger">Yes!</button>
-    <a asp-page="List" class="btn btn-default">Cancel</a>
+        Are you sure you want to delete @Model.FirstName @Model.LastName?
+    </div>
+
+<form asp-action="Delete" method="post" class="form-horizontal" role="form">
+    <div class="form-group">
+        <label asp-for="CustomerID" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="CustomerID" class="form-control" value="@Model.CustomerID" readonly />
+            <span asp-validation-for="CustomerID" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="FirstName" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="FirstName" class="form-control" value="@Model.FirstName" readonly/>
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LastName" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="LastName" class="form-control" value="@Model.LastName" readonly/>
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Phone" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="Phone" class="form-control" value="@Model.Phone" readonly/>
+            <span asp-validation-for="Phone" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Address" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="Address" class="form-control" value="@Model.Address" readonly />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="City" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="City" class="form-control" value="@Model.City" readonly/>
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PostalCode" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="PostalCode" class="form-control" value="@Model.PostalCode" readonly/>
+            <span asp-validation-for="PostalCode" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <a asp-controller="Customer" asp-action="List" class="btn btn-default">Cancel</a>
+        <button type="submit" class="btn btn-danger">Yes!</button>
+    </div>
 </form>

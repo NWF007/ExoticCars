@@ -1,5 +1,6 @@
 ﻿using ExoticCars.DAL;
 using ExoticCars.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,12 +33,12 @@ namespace ExoticCars.Repositories
         }
 
 
-        public void DeleteCustomer(int customerId)
+        public void DeleteCustomer(Customer customer)
         {
-            var customer = GetCustomerById(customerId);
             if (customer != null)
             {
                 dbContext.Customers.Remove(customer);
+                dbContext.SaveChanges();
             }
         }
 
@@ -55,7 +56,15 @@ namespace ExoticCars.Repositories
 
         public void UpdateCustomer(Customer customer)
         {
-            throw new NotImplementedException();
+            dbContext.Entry(customer).State = EntityState.Modified;
+            try
+            {
+                dbContext.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
         }
     }
 }

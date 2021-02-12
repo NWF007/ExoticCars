@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ExoticCars.ViewModels
 {
-    public class CustomerViewModel
+    public class ProductViewModel
     {
-        public IEnumerable<Customer> Customers { get; set; }
-        public Customer Customer { get; set; }
+        public IEnumerable<Product> Products { get; set; }
+        public Product Product { get; set; }
     }
 }

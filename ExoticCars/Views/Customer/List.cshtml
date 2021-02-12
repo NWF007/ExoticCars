@@ -4,39 +4,28 @@
         <h2>All Registered Customers</h2>
     </div>
     <div class="float-right">
-        <button class="btn btn-primary ml-5">Create</button>
+        @*<button >Create</button>*@
+        <a asp-controller="Customer" asp-action="Create" class="btn btn-primary ml-5">Create</a>
     </div>
     </div>
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>Phone</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>PostalCode</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var cust in Model.Customers)
-        {
-        <tr>
-            <td>@cust.FirstName</td>
-            <td>@cust.LastName</td>
-            <td>@cust.Phone</td>
-            <td>@cust.Address</td>
-            <td>@cust.City</td>
-            <td>@cust.PostalCode</td>
-            <td>
-                <button class="btn btn-danger mr-1">Details</button>
-                <button class="btn btn-info mr-1">Edit</button>
-                <button class="btn btn-primary mr-1">Delete</button>
-            </td>
-        </tr>
-        }
-
-    </tbody>  
-</table>
+<div>
+    @foreach (var cust in Model.Customers)
+    {
+        <div class="row">
+            <div class="column">
+        <div class="card" style="width: 20rem;">
+            <img src="https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h4 class="card-title">Name: @cust.FirstName @cust.LastName</h4>
+            <div class="row">
+                <a asp-controller="Customer" asp-action="Detail" asp-route-customerId="@cust.CustomerID" class="btn btn-danger mr-1 ml-4">Details</a>
+                <a asp-controller="Customer" asp-action="Edit" asp-route-customerId="@cust.CustomerID" class="btn btn-info mr-1">Edit</a>
+                <a asp-controller="Customer" asp-action="Delete" asp-route-customerId="@cust.CustomerID" class="btn btn-primary mr-1">Delete</a>
+            </div>
+            </div>
+        </div>
+            </div>
+        </div>
+    }
+    </div>

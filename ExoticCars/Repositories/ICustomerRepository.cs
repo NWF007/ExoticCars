@@ -11,8 +11,10 @@ namespace ExoticCars.Repositories
         void AddCustomer(Customer customer);
         void UpdateCustomer(Customer customer);
         Customer GetCustomerById(int orderId);
-        void DeleteCustomer(int customerId);
+        void DeleteCustomer(Customer customer);
         bool CustomerExists(int orderId);
         IEnumerable<Customer> GetCustomers { get; }
+
+        
     }
 }
