@@ -23,6 +23,6 @@ namespace ExoticCars.Models
         public string Comments { get; set; }
 
         public virtual Customer Customer { get; set; }
-        public virtual ICollection<Product> Products { get; set; }
+        //public virtual ICollection<Product> Products { get; set; }
     }
 }

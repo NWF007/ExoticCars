@@ -11,17 +11,13 @@ namespace ExoticCars.Controllers
 {
     public class ProductController : Controller
     {
+        Product productObj;
         private readonly IProductRepository productRepository;
 
         public ProductController(IProductRepository productRepository)
         {
             this.productRepository = productRepository;
         }
-        /* public IActionResult List()
-         {
-             ViewBag.Message = "Find all our cars here";
-             return View();
-         }*/
 
         public ViewResult List()
         {
@@ -60,6 +56,45 @@ namespace ExoticCars.Controllers
                 return NotFound();
 
             return View(product);
+        }
+
+        public IActionResult Edit(int productId)
+        {
+            ViewBag.Message = "Edit page";
+            IEnumerable<Product> products = productRepository.GetProducts;
+            List<Product> data = products.ToList();
+
+            /*List<Customer> customers = new List<Customer>();*/
+
+            foreach (var prod in data)
+            {
+                if (prod.ProductID == productId)
+                {
+                    productObj = new Product
+                    {
+                        ProductID = prod.ProductID,
+                        Name = prod.Name,
+                        Model = prod.Model,
+                        SellingPrice = prod.SellingPrice,
+                        CostPrice = prod.CostPrice,
+                        Year = prod.Year,
+                        EngineNo = prod.EngineNo
+                    };
+                    break;
+                }
+            }
+            return View(productObj);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                productRepository.UpdateProduct(product);
+                return RedirectToAction("List");
+            }
+            return View();
         }
     }
 }

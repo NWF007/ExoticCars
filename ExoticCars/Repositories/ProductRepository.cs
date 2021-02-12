@@ -1,5 +1,6 @@
 ﻿using ExoticCars.DAL;
 using ExoticCars.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +55,9 @@ namespace ExoticCars.Repositories
 
         public void UpdateProduct(Product product)
         {
-            throw new NotImplementedException();
+            dbContext.Entry(product).State = EntityState.Modified;
+            dbContext.SaveChanges();
+            
         }
     }
 }

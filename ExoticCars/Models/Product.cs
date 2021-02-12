@@ -17,11 +17,9 @@ namespace ExoticCars.Models
         public string Model { get; set; }
 
         [Required(ErrorMessage = "Please enter car selling price")]
-        [StringLength(50)]
         public int SellingPrice { get; set; }
 
         [Required(ErrorMessage = "Please enter car cost price")]
-        [StringLength(50)]
         public int CostPrice { get; set; }
 
         [Required(ErrorMessage = "Please enter car year")]
