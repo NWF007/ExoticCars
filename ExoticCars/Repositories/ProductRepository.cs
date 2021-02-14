@@ -55,9 +55,11 @@ namespace ExoticCars.Repositories
 
         public void UpdateProduct(Product product)
         {
-            dbContext.Entry(product).State = EntityState.Modified;
-            dbContext.SaveChanges();
-            
+            if(product != null)
+            {
+                dbContext.Entry(product).State = EntityState.Modified;
+                dbContext.SaveChanges();
+            }                     
         }
     }
 }
