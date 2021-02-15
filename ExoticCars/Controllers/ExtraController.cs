@@ -71,13 +71,13 @@ namespace ExoticCars.Controllers
             return View();
         }
 
-        public IActionResult Create()
+        public IActionResult Add()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(Extra extra)
+        public IActionResult Add(Extra extra)
         {
             if (ModelState.IsValid)
             {

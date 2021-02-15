@@ -1,5 +1,30 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model Extra
+
+<form asp-action="Add" method="post" class="form-horizontal" role="form">
+
+
+    <div class="form-group">
+        <label asp-for="ExtraName" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="ExtraName" class="form-control" />
+            <span asp-validation-for="ExtraName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ExtraPrice" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="ExtraPrice" class="form-control" />
+            <span asp-validation-for="ExtraPrice" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-offset-2 col-md-5">
+            <input asp-controller="Extra" asp-action="List" type="submit" class="btn btn-danger" value="Cancel" />
+        </div>
+        <div class="col-md-offset-2 col-md-5">
+            <input type="submit" class="btn btn-primary" value="Add Product" />
+        </div>
+    </div>
+</form>

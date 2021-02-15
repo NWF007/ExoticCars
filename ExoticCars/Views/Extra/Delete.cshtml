@@ -1,5 +1,36 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model Extra
+
+<div class="alert alert-info">
+    You are about to update @Model.ExtraName
+</div>
+
+<form asp-action="Delete" method="post" class="form-horizontal" role="form">
+    <div class="form-group">
+        <label asp-for="ExtraID" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="ExtraID" class="form-control" value="@Model.ExtraID" readonly />
+            <span asp-validation-for="ExtraID" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ExtraName" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="ExtraName" class="form-control" value="@Model.ExtraName"  readonly/>
+            <span asp-validation-for="ExtraName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ExtraPrice" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="ExtraPrice" class="form-control" value="@Model.ExtraPrice" readonly/>
+            <span asp-validation-for="ExtraPrice" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <a asp-controller="Extra" asp-action="List" class="btn btn-default">Cancel</a>
+        <button type="submit" class="btn btn-danger">Yes!</button>
+    </div>
+</form>

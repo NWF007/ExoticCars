@@ -17,7 +17,6 @@ namespace ExoticCars.Models
         public string ExtraName { get; set; }
 
         [Required(ErrorMessage = "Please enter extra price")]
-        [StringLength(50)]
-        public decimal ExtraPrice { get; set; }
+        public int ExtraPrice { get; set; }
     }
 }

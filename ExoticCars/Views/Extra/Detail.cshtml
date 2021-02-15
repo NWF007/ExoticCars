@@ -1,5 +1,17 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model Extra
+
+
+<div class="card" style="width: 20rem;">
+    <img src="https://thumbs.dreamstime.com/b/no-thumbnail-images-placeholder-forums-blogs-websites-148010338.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h4 class="card-title">Name: @Model.ExtraName</h4>
+        <h4>
+            Price: @Model.ExtraPrice
+        </h4>
+        <div class="row">
+            <a class="btn btn-primary"
+               asp-controller="Extra"
+               asp-action="List">Back</a>
+        </div>
+    </div>
+</div>

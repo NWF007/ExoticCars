@@ -39,6 +39,7 @@ namespace ExoticCars.Repositories
             if (extra != null)
             {
                 dbContext.Extras.Remove(extra);
+                dbContext.SaveChanges();
             }
         }
 
