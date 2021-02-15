@@ -56,6 +56,8 @@ namespace ExoticCars.Repositories
 
         public void UpdateCustomer(Customer customer)
         {
+            /*var entity = dbContext.Customers.Attach(customer);*/
+            
             dbContext.Entry(customer).State = EntityState.Modified;
             try
             {

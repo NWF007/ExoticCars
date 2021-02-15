@@ -11,7 +11,7 @@ namespace ExoticCars.Repositories
         void AddProduct(Product product);
         void UpdateProduct(Product product);
         Product GetProductId(int productId);
-        void DeleteProduct(int productId);
+        void DeleteProduct(Product product);
         bool ProductExists(int productId);
         IEnumerable<Product> GetProducts { get; }
     }

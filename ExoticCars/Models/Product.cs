@@ -5,7 +5,7 @@ namespace ExoticCars.Models
 {
     public class Product
     {
-        [BindNever]
+        
         public int ProductID { get; set; }
 
         [Required(ErrorMessage = "Please enter car name")]

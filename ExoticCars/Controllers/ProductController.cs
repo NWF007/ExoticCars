@@ -64,7 +64,6 @@ namespace ExoticCars.Controllers
             IEnumerable<Product> products = productRepository.GetProducts;
             List<Product> data = products.ToList();
 
-            /*List<Customer> customers = new List<Customer>();*/
 
             foreach (var prod in data)
             {
@@ -92,6 +91,45 @@ namespace ExoticCars.Controllers
             if (ModelState.IsValid)
             {
                 productRepository.UpdateProduct(product);
+                return RedirectToAction("List");
+            }
+            return View();
+        }
+
+        public IActionResult Delete(int productId)
+        {
+            ViewBag.Message = "Delete page";
+            IEnumerable<Product> products = productRepository.GetProducts;
+            List<Product> data = products.ToList();
+
+            /*List<Customer> customers = new List<Customer>();*/
+
+            foreach (var prod in data)
+            {
+                if (prod.ProductID == productId)
+                {
+                    productObj = new Product
+                    {
+                        ProductID = prod.ProductID,
+                        Name = prod.Name,
+                        Model = prod.Model,
+                        SellingPrice = prod.SellingPrice,
+                        CostPrice = prod.CostPrice,
+                        Year = prod.Year,
+                        EngineNo = prod.EngineNo
+                    };
+                    break;
+                }
+            }
+            return View(productObj);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                productRepository.DeleteProduct(product);
                 return RedirectToAction("List");
             }
             return View();

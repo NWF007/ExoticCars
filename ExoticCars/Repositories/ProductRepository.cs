@@ -34,12 +34,13 @@ namespace ExoticCars.Repositories
             dbContext.SaveChanges();
         }
 
-        public void DeleteProduct(int productId)
+        public void DeleteProduct(Product product)
         {
-            var product = GetProductId(productId);
+            
             if (product != null)
             {
                 dbContext.Products.Remove(product);
+                dbContext.SaveChanges();
             }
         }
 
@@ -58,7 +59,14 @@ namespace ExoticCars.Repositories
             if(product != null)
             {
                 dbContext.Entry(product).State = EntityState.Modified;
-                dbContext.SaveChanges();
+                try
+                {
+                    dbContext.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    throw;
+                }
             }                     
         }
     }

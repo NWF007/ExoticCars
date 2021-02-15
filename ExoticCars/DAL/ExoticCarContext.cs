@@ -64,6 +64,14 @@ namespace ExoticCars.DAL
             modelBuilder.Entity<Product>().HasData(new Product { ProductID = 9, Name = "Alfa Romeo", Model = "Giulia Quadrifoglio", SellingPrice = 1500000, CostPrice = 12000000, Year = "2020", EngineNo = "AL2AM08719" });
             modelBuilder.Entity<Product>().HasData(new Product { ProductID = 10, Name = "Mercedez-Benz", Model = "AMG GT 63", SellingPrice = 2500000, CostPrice = 22000000, Year = "2020", EngineNo = "MB2AM07531" });
 
+            // seed extras
+            modelBuilder.Entity<Extra>().HasData(new Extra { ExtraID = 1, ExtraName = "Sunroof", ExtraPrice = 5000 });
+            modelBuilder.Entity<Extra>().HasData(new Extra { ExtraID = 2, ExtraName = "Sport exhaust", ExtraPrice = 15000 });
+            modelBuilder.Entity<Extra>().HasData(new Extra { ExtraID = 3, ExtraName = "22 inch Wheels", ExtraPrice = 20000 });
+            modelBuilder.Entity<Extra>().HasData(new Extra { ExtraID = 4, ExtraName = "Matte Black paint", ExtraPrice = 7000 });
+            modelBuilder.Entity<Extra>().HasData(new Extra { ExtraID = 5, ExtraName = "Bang & Olufsen sound system", ExtraPrice = 12000 });
+            modelBuilder.Entity<Extra>().HasData(new Extra { ExtraID = 6, ExtraName = "Carbon Ceramic Brakes", ExtraPrice = 22000 });
+
         }
 
     }

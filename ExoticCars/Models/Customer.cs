@@ -6,7 +6,7 @@ namespace ExoticCars.Models
 {
     public class Customer
     {
-        [BindNever]
+        
         public int CustomerID { get; set; }
 
         [Required(ErrorMessage = "Please enter your first name")]

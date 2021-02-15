@@ -9,7 +9,7 @@ namespace ExoticCars.Models
 {
     public class Extra
     {
-        [BindNever]
+        
         public int ExtraID { get; set; }
 
         [Required(ErrorMessage = "Please enter extra name")]

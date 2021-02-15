@@ -10,22 +10,25 @@
     </div>
 
 <div>
-    @foreach (var cust in Model.Customers)
-    {
-        <div class="row">
-            <div class="column">
-        <div class="card" style="width: 20rem;">
-            <img src="https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h4 class="card-title">Name: @cust.FirstName @cust.LastName</h4>
-            <div class="row">
-                <a asp-controller="Customer" asp-action="Detail" asp-route-customerId="@cust.CustomerID" class="btn btn-danger mr-1 ml-4">Details</a>
-                <a asp-controller="Customer" asp-action="Edit" asp-route-customerId="@cust.CustomerID" class="btn btn-info mr-1">Edit</a>
-                <a asp-controller="Customer" asp-action="Delete" asp-route-customerId="@cust.CustomerID" class="btn btn-primary mr-1">Delete</a>
+    
+    <div class="row">
+        @foreach (var cust in Model.Customers)
+        {
+            <div class="col-sm-4 mb-2">
+                <div class="card" style="width: 20rem;">
+                    <div>
+                        <img src="https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h4 class="card-title">Name: @cust.FirstName @cust.LastName</h4>
+                            <div class="row">
+                                <a asp-controller="Customer" asp-action="Detail" asp-route-customerId="@cust.CustomerID" class="btn btn-danger mr-1 ml-4">Details</a>
+                                <a asp-controller="Customer" asp-action="Edit" asp-route-customerId="@cust.CustomerID" class="btn btn-info mr-1">Edit</a>
+                                <a asp-controller="Customer" asp-action="Delete" asp-route-customerId="@cust.CustomerID" class="btn btn-primary mr-1">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            </div>
-        </div>
-            </div>
-        </div>
     }
+        </div>
     </div>
