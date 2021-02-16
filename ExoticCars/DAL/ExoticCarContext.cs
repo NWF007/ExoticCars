@@ -45,24 +45,24 @@ namespace ExoticCars.DAL
             modelBuilder.Entity<Customer>().HasData(new Customer { CustomerID = 10, FirstName = "Brian", LastName = "Watson", Phone = "0825585274", Address = "454 Moon Street,Lake Virginia", City = "Prtoria", PostalCode = "8954" });
 
             // seed orders
-            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 1, CustomerID = 1, OrderDate = DateTime.Parse("2020-09-01"), Status = Order.status.OrderOnHold, Comments = "Order on hold for customer. Credit check in progress" });
-            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 2, CustomerID = 3, OrderDate = DateTime.Parse("2020-10-12"), Status = Order.status.OrderPlaced, Comments = "Customer wating for optional extra" });
-            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 3, CustomerID = 4, OrderDate = DateTime.Parse("2020-08-15"), Status = Order.status.OrderShipped, Comments = "Car shipped from manufaturer" });
-            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 4, CustomerID = 6, OrderDate = DateTime.Parse("2020-07-03"), Status = Order.status.OrderOnHold, Comments = "Order on hold for customer. Credit check in progress" });
-            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 5, CustomerID = 7, OrderDate = DateTime.Parse("2020-05-14"), Status = Order.status.OrderPlaced, Comments = "Car shipped from manufaturer" });
-            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 6, CustomerID = 9, OrderDate = DateTime.Parse("2020-03-17"), Status = Order.status.OrderPlaced, Comments = "Car shipped from manufaturer" });
+            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 1, CustomerID = 1, OrderDate = DateTime.Parse("2020-09-01"), Status = Order.status.OrderOnHold, Comments = "Order on hold for customer. Credit check in progress", TotalAmount = 960000 });
+            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 2, CustomerID = 3, OrderDate = DateTime.Parse("2020-10-12"), Status = Order.status.OrderPlaced, Comments = "Customer wating for optional extra", TotalAmount = 545000 });
+            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 3, CustomerID = 4, OrderDate = DateTime.Parse("2020-08-15"), Status = Order.status.OrderShipped, Comments = "Car shipped from manufaturer" , TotalAmount = 270000 });
+            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 4, CustomerID = 6, OrderDate = DateTime.Parse("2020-07-03"), Status = Order.status.OrderOnHold, Comments = "Order on hold for customer. Credit check in progress", TotalAmount = 157000 });
+            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 5, CustomerID = 7, OrderDate = DateTime.Parse("2020-05-14"), Status = Order.status.OrderPlaced, Comments = "Car shipped from manufaturer" , TotalAmount = 754000});
+            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 6, CustomerID = 9, OrderDate = DateTime.Parse("2020-03-17"), Status = Order.status.OrderPlaced, Comments = "Car shipped from manufaturer", TotalAmount = 377000 });
 
             // seed products
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 1, Name = "Land Rover", Model = "Defender 90", SellingPrice = 15000000, CostPrice = 10000000, Year = "2018", EngineNo = "L22AM03790" });
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 2, Name = "Maserati", Model = "A6GCS/53", SellingPrice = 3500000, CostPrice = 25000000, Year = "2020", EngineNo = "M22AM08524" });
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 3, Name = "Cadillac", Model = "XT5", SellingPrice = 3000000, CostPrice = 27000000, Year = "2019", EngineNo = "C22AM03737" });
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 4, Name = "Jaguar", Model = "F-Type SVR", SellingPrice = 1000000, CostPrice = 9000000, Year = "2020", EngineNo = "J22AM07894" });
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 5, Name = "BMW", Model = "BMW E36 M3", SellingPrice = 2000000, CostPrice = 15000000, Year = "2020", EngineNo = "B22AM00247" });
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 6, Name = "Porsche", Model = "911 Carrera RS 3.0", SellingPrice = 3500000, CostPrice = 28000000, Year = "2020", EngineNo = "P22AM08761" });
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 7, Name = "Ferarri", Model = "812 GTS", SellingPrice = 3800000, CostPrice = 35000000, Year = "2020", EngineNo = "F22AM08520" });
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 8, Name = "Audi", Model = "Audi Q8", SellingPrice = 2000000, CostPrice = 15000000, Year = "2020", EngineNo = "A22AM07419" });
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 9, Name = "Alfa Romeo", Model = "Giulia Quadrifoglio", SellingPrice = 1500000, CostPrice = 12000000, Year = "2020", EngineNo = "AL2AM08719" });
-            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 10, Name = "Mercedez-Benz", Model = "AMG GT 63", SellingPrice = 2500000, CostPrice = 22000000, Year = "2020", EngineNo = "MB2AM07531" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 1, Name = "Land Rover", Model = "Defender 90", SellingPrice = 150000, CostPrice = 100000, Year = "2018", EngineNo = "L22AM03790" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 2, Name = "Maserati", Model = "A6GCS/53", SellingPrice = 350000, CostPrice = 250000, Year = "2020", EngineNo = "M22AM08524" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 3, Name = "Cadillac", Model = "XT5", SellingPrice = 300000, CostPrice = 270000, Year = "2019", EngineNo = "C22AM03737" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 4, Name = "Jaguar", Model = "F-Type SVR", SellingPrice = 100000, CostPrice = 90000, Year = "2020", EngineNo = "J22AM07894" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 5, Name = "BMW", Model = "BMW E36 M3", SellingPrice = 200000, CostPrice = 150000, Year = "2020", EngineNo = "B22AM00247" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 6, Name = "Porsche", Model = "911 Carrera RS 3.0", SellingPrice = 350000, CostPrice = 280000, Year = "2020", EngineNo = "P22AM08761" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 7, Name = "Ferarri", Model = "812 GTS", SellingPrice = 380000, CostPrice = 350000, Year = "2020", EngineNo = "F22AM08520" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 8, Name = "Audi", Model = "Audi Q8", SellingPrice = 200000, CostPrice = 150000, Year = "2020", EngineNo = "A22AM07419" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 9, Name = "Alfa Romeo", Model = "Giulia Quadrifoglio", SellingPrice = 150000, CostPrice = 120000, Year = "2020", EngineNo = "AL2AM08719" });
+            modelBuilder.Entity<Product>().HasData(new Product { ProductID = 10, Name = "Mercedez-Benz", Model = "AMG GT 63", SellingPrice = 250000, CostPrice = 220000, Year = "2020", EngineNo = "MB2AM07531" });
 
             // seed extras
             modelBuilder.Entity<Extra>().HasData(new Extra { ExtraID = 1, ExtraName = "Sunroof", ExtraPrice = 5000 });
@@ -71,6 +71,20 @@ namespace ExoticCars.DAL
             modelBuilder.Entity<Extra>().HasData(new Extra { ExtraID = 4, ExtraName = "Matte Black paint", ExtraPrice = 7000 });
             modelBuilder.Entity<Extra>().HasData(new Extra { ExtraID = 5, ExtraName = "Bang & Olufsen sound system", ExtraPrice = 12000 });
             modelBuilder.Entity<Extra>().HasData(new Extra { ExtraID = 6, ExtraName = "Carbon Ceramic Brakes", ExtraPrice = 22000 });
+
+            modelBuilder.Entity<OrderProduct>().HasData(new OrderProduct { OrderProductID = 1, ProductID = 1, OrderID = 1, ExtraID = 2, ProductQuantity = 1, ExtraQuantity = 1, Price = 165000});
+            modelBuilder.Entity<OrderProduct>().HasData(new OrderProduct { OrderProductID = 2, ProductID = 2, OrderID = 1, ExtraID = 2, ProductQuantity = 1, ExtraQuantity = 1, Price = 365000 });
+            modelBuilder.Entity<OrderProduct>().HasData(new OrderProduct { OrderProductID = 3, ProductID = 3, OrderID = 1, ExtraID = 2, ProductQuantity = 1, ExtraQuantity = 1, Price = 315000 });
+            modelBuilder.Entity<OrderProduct>().HasData(new OrderProduct { OrderProductID = 4, ProductID = 4, OrderID = 1, ExtraID = 2, ProductQuantity = 1, ExtraQuantity = 1, Price = 115000 });
+            modelBuilder.Entity<OrderProduct>().HasData(new OrderProduct { OrderProductID = 5, ProductID = 1, OrderID = 2, ExtraID = 2, ProductQuantity = 1, ExtraQuantity = 1, Price = 165000 });
+            modelBuilder.Entity<OrderProduct>().HasData(new OrderProduct { OrderProductID = 6, ProductID = 8, OrderID = 2, ExtraID = 2, ProductQuantity = 1, ExtraQuantity = 1, Price = 215000 });
+            modelBuilder.Entity<OrderProduct>().HasData(new OrderProduct { OrderProductID = 7, ProductID = 9, OrderID = 2, ExtraID = 2, ProductQuantity = 1, ExtraQuantity = 1, Price = 165000 });
+            modelBuilder.Entity<OrderProduct>().HasData(new OrderProduct { OrderProductID = 8, ProductID = 10, OrderID = 3, ExtraID = 3, ProductQuantity = 1, ExtraQuantity = 1, Price = 270000 });
+            modelBuilder.Entity<OrderProduct>().HasData(new OrderProduct { OrderProductID = 9, ProductID = 1, OrderID = 4, ExtraID = 4, ProductQuantity = 1, ExtraQuantity = 1, Price = 157000 });
+            modelBuilder.Entity<OrderProduct>().HasData(new OrderProduct { OrderProductID = 10, ProductID = 6, OrderID = 5, ExtraID = 5, ProductQuantity = 1, ExtraQuantity = 1, Price = 362000 });
+            modelBuilder.Entity<OrderProduct>().HasData(new OrderProduct { OrderProductID = 11, ProductID = 7, OrderID = 5, ExtraID = 5, ProductQuantity = 1, ExtraQuantity = 1, Price = 392000 });
+            modelBuilder.Entity<OrderProduct>().HasData(new OrderProduct { OrderProductID = 12, ProductID = 5, OrderID = 6, ExtraID = 6, ProductQuantity = 1, ExtraQuantity = 1, Price = 222000 });
+            modelBuilder.Entity<OrderProduct>().HasData(new OrderProduct { OrderProductID = 13, ProductID = 8, OrderID = 6, ExtraID = 6, ProductQuantity = 1, ExtraQuantity = 1, Price = 155000 });
 
         }
 

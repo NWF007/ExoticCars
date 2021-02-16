@@ -4,14 +4,16 @@ using ExoticCars.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ExoticCars.Migrations
 {
     [DbContext(typeof(ExoticCarContext))]
-    partial class ExoticCarContextModelSnapshot : ModelSnapshot
+    [Migration("20210215125638_UpdateOrderProductEntity")]
+    partial class UpdateOrderProductEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -178,7 +180,12 @@ namespace ExoticCars.Migrations
                     b.Property<int>("ExtraPrice")
                         .HasColumnType("int");
 
+                    b.Property<int?>("OrderProductID")
+                        .HasColumnType("int");
+
                     b.HasKey("ExtraID");
+
+                    b.HasIndex("OrderProductID");
 
                     b.ToTable("Extras");
 
@@ -240,9 +247,6 @@ namespace ExoticCars.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("TotalAmount")
-                        .HasColumnType("int");
-
                     b.HasKey("OrderID");
 
                     b.HasIndex("CustomerID");
@@ -256,8 +260,7 @@ namespace ExoticCars.Migrations
                             Comments = "Order on hold for customer. Credit check in progress",
                             CustomerID = 1,
                             OrderDate = new DateTime(2020, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = 2,
-                            TotalAmount = 960000
+                            Status = 2
                         },
                         new
                         {
@@ -265,8 +268,7 @@ namespace ExoticCars.Migrations
                             Comments = "Customer wating for optional extra",
                             CustomerID = 3,
                             OrderDate = new DateTime(2020, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = 1,
-                            TotalAmount = 545000
+                            Status = 1
                         },
                         new
                         {
@@ -274,8 +276,7 @@ namespace ExoticCars.Migrations
                             Comments = "Car shipped from manufaturer",
                             CustomerID = 4,
                             OrderDate = new DateTime(2020, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = 4,
-                            TotalAmount = 270000
+                            Status = 4
                         },
                         new
                         {
@@ -283,8 +284,7 @@ namespace ExoticCars.Migrations
                             Comments = "Order on hold for customer. Credit check in progress",
                             CustomerID = 6,
                             OrderDate = new DateTime(2020, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = 2,
-                            TotalAmount = 157000
+                            Status = 2
                         },
                         new
                         {
@@ -292,8 +292,7 @@ namespace ExoticCars.Migrations
                             Comments = "Car shipped from manufaturer",
                             CustomerID = 7,
                             OrderDate = new DateTime(2020, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = 1,
-                            TotalAmount = 754000
+                            Status = 1
                         },
                         new
                         {
@@ -301,8 +300,7 @@ namespace ExoticCars.Migrations
                             Comments = "Car shipped from manufaturer",
                             CustomerID = 9,
                             OrderDate = new DateTime(2020, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = 1,
-                            TotalAmount = 377000
+                            Status = 1
                         });
                 });
 
@@ -340,138 +338,6 @@ namespace ExoticCars.Migrations
                     b.HasIndex("ProductID");
 
                     b.ToTable("OrderProducts");
-
-                    b.HasData(
-                        new
-                        {
-                            OrderProductID = 1,
-                            ExtraID = 2,
-                            ExtraQuantity = 1.0,
-                            OrderID = 1,
-                            Price = 165000.0,
-                            ProductID = 1,
-                            ProductQuantity = 1
-                        },
-                        new
-                        {
-                            OrderProductID = 2,
-                            ExtraID = 2,
-                            ExtraQuantity = 1.0,
-                            OrderID = 1,
-                            Price = 365000.0,
-                            ProductID = 2,
-                            ProductQuantity = 1
-                        },
-                        new
-                        {
-                            OrderProductID = 3,
-                            ExtraID = 2,
-                            ExtraQuantity = 1.0,
-                            OrderID = 1,
-                            Price = 315000.0,
-                            ProductID = 3,
-                            ProductQuantity = 1
-                        },
-                        new
-                        {
-                            OrderProductID = 4,
-                            ExtraID = 2,
-                            ExtraQuantity = 1.0,
-                            OrderID = 1,
-                            Price = 115000.0,
-                            ProductID = 4,
-                            ProductQuantity = 1
-                        },
-                        new
-                        {
-                            OrderProductID = 5,
-                            ExtraID = 2,
-                            ExtraQuantity = 1.0,
-                            OrderID = 2,
-                            Price = 165000.0,
-                            ProductID = 1,
-                            ProductQuantity = 1
-                        },
-                        new
-                        {
-                            OrderProductID = 6,
-                            ExtraID = 2,
-                            ExtraQuantity = 1.0,
-                            OrderID = 2,
-                            Price = 215000.0,
-                            ProductID = 8,
-                            ProductQuantity = 1
-                        },
-                        new
-                        {
-                            OrderProductID = 7,
-                            ExtraID = 2,
-                            ExtraQuantity = 1.0,
-                            OrderID = 2,
-                            Price = 165000.0,
-                            ProductID = 9,
-                            ProductQuantity = 1
-                        },
-                        new
-                        {
-                            OrderProductID = 8,
-                            ExtraID = 3,
-                            ExtraQuantity = 1.0,
-                            OrderID = 3,
-                            Price = 270000.0,
-                            ProductID = 10,
-                            ProductQuantity = 1
-                        },
-                        new
-                        {
-                            OrderProductID = 9,
-                            ExtraID = 4,
-                            ExtraQuantity = 1.0,
-                            OrderID = 4,
-                            Price = 157000.0,
-                            ProductID = 1,
-                            ProductQuantity = 1
-                        },
-                        new
-                        {
-                            OrderProductID = 10,
-                            ExtraID = 5,
-                            ExtraQuantity = 1.0,
-                            OrderID = 5,
-                            Price = 362000.0,
-                            ProductID = 6,
-                            ProductQuantity = 1
-                        },
-                        new
-                        {
-                            OrderProductID = 11,
-                            ExtraID = 5,
-                            ExtraQuantity = 1.0,
-                            OrderID = 5,
-                            Price = 392000.0,
-                            ProductID = 7,
-                            ProductQuantity = 1
-                        },
-                        new
-                        {
-                            OrderProductID = 12,
-                            ExtraID = 6,
-                            ExtraQuantity = 1.0,
-                            OrderID = 6,
-                            Price = 222000.0,
-                            ProductID = 5,
-                            ProductQuantity = 1
-                        },
-                        new
-                        {
-                            OrderProductID = 13,
-                            ExtraID = 6,
-                            ExtraQuantity = 1.0,
-                            OrderID = 6,
-                            Price = 155000.0,
-                            ProductID = 8,
-                            ProductQuantity = 1
-                        });
                 });
 
             modelBuilder.Entity("ExoticCars.Models.Product", b =>
@@ -499,6 +365,9 @@ namespace ExoticCars.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
+                    b.Property<int?>("OrderProductID")
+                        .HasColumnType("int");
+
                     b.Property<int>("SellingPrice")
                         .HasColumnType("int");
 
@@ -509,109 +378,118 @@ namespace ExoticCars.Migrations
 
                     b.HasKey("ProductID");
 
+                    b.HasIndex("OrderProductID");
+
                     b.ToTable("Products");
 
                     b.HasData(
                         new
                         {
                             ProductID = 1,
-                            CostPrice = 100000,
+                            CostPrice = 10000000,
                             EngineNo = "L22AM03790",
                             Model = "Defender 90",
                             Name = "Land Rover",
-                            SellingPrice = 150000,
+                            SellingPrice = 15000000,
                             Year = "2018"
                         },
                         new
                         {
                             ProductID = 2,
-                            CostPrice = 250000,
+                            CostPrice = 25000000,
                             EngineNo = "M22AM08524",
                             Model = "A6GCS/53",
                             Name = "Maserati",
-                            SellingPrice = 350000,
+                            SellingPrice = 3500000,
                             Year = "2020"
                         },
                         new
                         {
                             ProductID = 3,
-                            CostPrice = 270000,
+                            CostPrice = 27000000,
                             EngineNo = "C22AM03737",
                             Model = "XT5",
                             Name = "Cadillac",
-                            SellingPrice = 300000,
+                            SellingPrice = 3000000,
                             Year = "2019"
                         },
                         new
                         {
                             ProductID = 4,
-                            CostPrice = 90000,
+                            CostPrice = 9000000,
                             EngineNo = "J22AM07894",
                             Model = "F-Type SVR",
                             Name = "Jaguar",
-                            SellingPrice = 100000,
+                            SellingPrice = 1000000,
                             Year = "2020"
                         },
                         new
                         {
                             ProductID = 5,
-                            CostPrice = 150000,
+                            CostPrice = 15000000,
                             EngineNo = "B22AM00247",
                             Model = "BMW E36 M3",
                             Name = "BMW",
-                            SellingPrice = 200000,
+                            SellingPrice = 2000000,
                             Year = "2020"
                         },
                         new
                         {
                             ProductID = 6,
-                            CostPrice = 280000,
+                            CostPrice = 28000000,
                             EngineNo = "P22AM08761",
                             Model = "911 Carrera RS 3.0",
                             Name = "Porsche",
-                            SellingPrice = 350000,
+                            SellingPrice = 3500000,
                             Year = "2020"
                         },
                         new
                         {
                             ProductID = 7,
-                            CostPrice = 350000,
+                            CostPrice = 35000000,
                             EngineNo = "F22AM08520",
                             Model = "812 GTS",
                             Name = "Ferarri",
-                            SellingPrice = 380000,
+                            SellingPrice = 3800000,
                             Year = "2020"
                         },
                         new
                         {
                             ProductID = 8,
-                            CostPrice = 150000,
+                            CostPrice = 15000000,
                             EngineNo = "A22AM07419",
                             Model = "Audi Q8",
                             Name = "Audi",
-                            SellingPrice = 200000,
+                            SellingPrice = 2000000,
                             Year = "2020"
                         },
                         new
                         {
                             ProductID = 9,
-                            CostPrice = 120000,
+                            CostPrice = 12000000,
                             EngineNo = "AL2AM08719",
                             Model = "Giulia Quadrifoglio",
                             Name = "Alfa Romeo",
-                            SellingPrice = 150000,
+                            SellingPrice = 1500000,
                             Year = "2020"
                         },
                         new
                         {
                             ProductID = 10,
-                            CostPrice = 220000,
+                            CostPrice = 22000000,
                             EngineNo = "MB2AM07531",
                             Model = "AMG GT 63",
                             Name = "Mercedez-Benz",
-                            SellingPrice = 250000,
+                            SellingPrice = 2500000,
                             Year = "2020"
                         });
+                });
+
+            modelBuilder.Entity("ExoticCars.Models.Extra", b =>
+                {
+                    b.HasOne("ExoticCars.Models.OrderProduct", null)
+                        .WithMany("extras")
+                        .HasForeignKey("OrderProductID");
                 });
 
             modelBuilder.Entity("ExoticCars.Models.Order", b =>
@@ -642,6 +520,13 @@ namespace ExoticCars.Migrations
                         .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ExoticCars.Models.Product", b =>
+                {
+                    b.HasOne("ExoticCars.Models.OrderProduct", null)
+                        .WithMany("products")
+                        .HasForeignKey("OrderProductID");
                 });
 #pragma warning restore 612, 618
         }

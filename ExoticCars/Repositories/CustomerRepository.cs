@@ -68,5 +68,10 @@ namespace ExoticCars.Repositories
                 throw;
             }
         }
+
+        /*public Customer GetCustomerByOrderNumber(int orderId)
+        {
+            var customer = dbContext.OrderProducts.Where(o => o.OrderID).Any(e  => e.Customer.Cusomter)
+        }*/
     }
 }

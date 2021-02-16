@@ -4,14 +4,16 @@ using ExoticCars.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ExoticCars.Migrations
 {
     [DbContext(typeof(ExoticCarContext))]
-    partial class ExoticCarContextModelSnapshot : ModelSnapshot
+    [Migration("20210215140458_NewCreationOfDB")]
+    partial class NewCreationOfDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

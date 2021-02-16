@@ -4,14 +4,16 @@ using ExoticCars.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ExoticCars.Migrations
 {
     [DbContext(typeof(ExoticCarContext))]
-    partial class ExoticCarContextModelSnapshot : ModelSnapshot
+    [Migration("20210215135549_FixConstraintss")]
+    partial class FixConstraintss
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -257,7 +259,7 @@ namespace ExoticCars.Migrations
                             CustomerID = 1,
                             OrderDate = new DateTime(2020, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = 2,
-                            TotalAmount = 960000
+                            TotalAmount = 920000
                         },
                         new
                         {
@@ -345,40 +347,40 @@ namespace ExoticCars.Migrations
                         new
                         {
                             OrderProductID = 1,
-                            ExtraID = 2,
+                            ExtraID = 1,
                             ExtraQuantity = 1.0,
                             OrderID = 1,
-                            Price = 165000.0,
+                            Price = 155000.0,
                             ProductID = 1,
                             ProductQuantity = 1
                         },
                         new
                         {
                             OrderProductID = 2,
-                            ExtraID = 2,
+                            ExtraID = 1,
                             ExtraQuantity = 1.0,
                             OrderID = 1,
-                            Price = 365000.0,
+                            Price = 355000.0,
                             ProductID = 2,
                             ProductQuantity = 1
                         },
                         new
                         {
                             OrderProductID = 3,
-                            ExtraID = 2,
+                            ExtraID = 1,
                             ExtraQuantity = 1.0,
                             OrderID = 1,
-                            Price = 315000.0,
+                            Price = 305000.0,
                             ProductID = 3,
                             ProductQuantity = 1
                         },
                         new
                         {
                             OrderProductID = 4,
-                            ExtraID = 2,
+                            ExtraID = 1,
                             ExtraQuantity = 1.0,
                             OrderID = 1,
-                            Price = 115000.0,
+                            Price = 105000.0,
                             ProductID = 4,
                             ProductQuantity = 1
                         },

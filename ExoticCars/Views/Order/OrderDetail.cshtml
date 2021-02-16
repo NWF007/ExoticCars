@@ -1,0 +1,44 @@
+﻿@model List<OrderProduct>
+
+@*The table should not display the keys, but the values of the foreign keys..... must fix still.*@
+
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>OrderProductID</th>
+                <th>ProductID</th>
+                <th>OrderID</th>
+                <th>ExtraID</th>
+                <th>ProductQuantity</th>
+                <th>ExtraQuantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var el in Model)
+            {
+            <tr>
+                <td class="text-center"><p>@Html.DisplayFor(m => el.OrderProductID)</p></td>
+                <td class="text-center"><p>@Html.DisplayFor(m => el.ProductID)</p></td>
+                <td class="text-center"><p>@Html.DisplayFor(m => el.OrderID)</p></td>
+                <td class="text-center"><p>@Html.DisplayFor(m => el.ExtraID)</p></td>
+                <td class="text-center"><p>@Html.DisplayFor(m => el.ProductQuantity)</p></td>
+                <td class="text-center"><p>@Html.DisplayFor(m => el.ExtraQuantity)</p></td>
+                <td class="text-center"><p>@Html.DisplayFor(m => el.Price)</p></td>
+            </tr>
+        }
+            </tbody>
+        <tfoot>
+            <tr>
+                <td class="text-center"><p></p></td>
+                <td class="text-center"><p></p></td>
+                <td class="text-center"><p></p></td>
+                <td class="text-center"><p></p></td>
+                <td class="text-center"><p></p></td>
+                <td class="text-center"><p>Total Price:</p></td>
+                <td class="text-center"><p>R</p></td>
+            </tr>
+        </tfoot>
+        </table>
+</div>

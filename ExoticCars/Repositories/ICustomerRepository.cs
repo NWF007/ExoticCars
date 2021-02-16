@@ -15,6 +15,8 @@ namespace ExoticCars.Repositories
         bool CustomerExists(int orderId);
         IEnumerable<Customer> GetCustomers { get; }
 
+        /*Customer GetCustomerByOrderNumber(int orderId);*/
+
         
     }
 }
