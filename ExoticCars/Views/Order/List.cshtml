@@ -14,10 +14,11 @@
     </div>
 
     <div class="float-right">
-        <a asp-controller="Order" asp-action="OrderPlaced" class="btn btn-outline-info ml-5">Orders Placed</a>
-        <a asp-controller="Order" asp-action="OrderOnHold" class="btn btn-outline-info ml-5">Orders on hold</a>
-        <a asp-controller="Order" asp-action="OrderCancelled" class="btn btn-outline-info ml-5">Orders Cancelled</a>
-        <a asp-controller="Order" asp-action="OrderShipped" class="btn btn-outline-info ml-5">Orders Shipped</a>
+        @*<a asp-controller="Order" asp-action="OrderStatus" asp-route-status="1" class="btn btn-outline-info ml-5">Orders Placed</a>
+        <a asp-controller="Order" asp-action="OrderStatus" asp-route-status="2" class="btn btn-outline-info ml-5">Orders on hold</a>
+        <a asp-controller="Order" asp-action="OrderStatus" asp-route-status="3" class="btn btn-outline-info ml-5">Orders Cancelled</a>
+        <a asp-controller="Order" asp-action="OrderStatus" asp-route-status="4" class="btn btn-outline-info ml-5">Orders Shipped</a>*@
+        <h4 class="ml-5">View by:  @Html.DropDownListFor(m => Model.Order.Status, Enum.GetNames(typeof(Order.status)).Select(e => new SelectListItem { Text = e })) </h4>
     </div>
 </div>
     </div>

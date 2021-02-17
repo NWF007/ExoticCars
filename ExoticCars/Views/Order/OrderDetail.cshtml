@@ -6,33 +6,29 @@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>OrderProductID</th>
-                <th>ProductID</th>
-                <th>OrderID</th>
-                <th>ExtraID</th>
-                <th>ProductQuantity</th>
-                <th>ExtraQuantity</th>
-                <th>Price</th>
+                @*<th>OrderProductID</th>*@
+                <th class="text-center">Car</th>
+                @*<th>OrderID</th>*@
+                <th class="text-center">ProductQuantity</th>
+                <th class="text-center">Extra Name</th>
+                <th class="text-center">ExtraQuantity</th>
+                <th class="text-center">Price</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var el in Model)
             {
-            <tr>
-                <td class="text-center"><p>@Html.DisplayFor(m => el.OrderProductID)</p></td>
-                <td class="text-center"><p>@Html.DisplayFor(m => el.ProductID)</p></td>
-                <td class="text-center"><p>@Html.DisplayFor(m => el.OrderID)</p></td>
-                <td class="text-center"><p>@Html.DisplayFor(m => el.ExtraID)</p></td>
-                <td class="text-center"><p>@Html.DisplayFor(m => el.ProductQuantity)</p></td>
-                <td class="text-center"><p>@Html.DisplayFor(m => el.ExtraQuantity)</p></td>
-                <td class="text-center"><p>@Html.DisplayFor(m => el.Price)</p></td>
-            </tr>
-        }
-            </tbody>
+                <tr>
+                    <td class="text-center"><p>@Html.DisplayFor(m => el.Product.Name)</p></td>
+                    <td class="text-center"><p>@Html.DisplayFor(m => el.ProductQuantity)</p></td>
+                    <td class="text-center"><p>@Html.DisplayFor(m => el.Extra.ExtraName)</p></td>
+                    <td class="text-center"><p>@Html.DisplayFor(m => el.ExtraQuantity)</p></td>
+                    <td class="text-center"><p>@Html.DisplayFor(m => el.Price)</p></td>
+                </tr>
+            }
+        </tbody>
         <tfoot>
             <tr>
-                <td class="text-center"><p></p></td>
-                <td class="text-center"><p></p></td>
                 <td class="text-center"><p></p></td>
                 <td class="text-center"><p></p></td>
                 <td class="text-center"><p></p></td>
@@ -40,5 +36,9 @@
                 <td class="text-center"><p>R</p></td>
             </tr>
         </tfoot>
-        </table>
+    </table>
+
+    <div class="form-group">
+        <a asp-controller="Order" asp-action="List"  class="btn btn-info">All Orders</a>
+    </div>
 </div>

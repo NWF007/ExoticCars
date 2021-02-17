@@ -51,21 +51,21 @@ namespace ExoticCars.Controllers
             return View(order);
         }
 
-        /*public IActionResult OrderPlaced()
+        public IActionResult OrderStatus(string status)
         {
+            IEnumerable<Order> orders;
+            orders = orderRepository.GetOrdersByStatus(status);
 
-            var orders = orderRepository.GetAllOrders.ToList();
-            foreach(var order in orders)
+            return View(new OrderViewModel
             {
-                if(order.Status == "OrderPlaced")
-            }
-
-            return View(order);
-        }*/
+                Orders = orders
+            });
+        }
 
         public IActionResult OrderDetail(int orderId)
         {
             var orderDetail = orderProductRepository.GetOrderProductDetails(orderId);
+            var orderTotal = orderRepository.GetOrderTotal(orderId);
             return View(orderDetail);
         }
 
@@ -96,12 +96,12 @@ namespace ExoticCars.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Order order)
+        public IActionResult EditOrder(int orderId)
         {
-            if (ModelState.IsValid)
+            if (orderId != null)
             {
                 
-                orderRepository.UpdateOrder(order);
+                orderRepository.UpdateOrder(orderId);
                 return RedirectToAction("List");
             }
             return View();
@@ -131,6 +131,17 @@ namespace ExoticCars.Controllers
                 }
             }
             return View(orderObj);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteOrder(int orderId)
+        {
+            if (orderId != null)
+            {
+                orderRepository.DeleteOrder(orderId);
+                return RedirectToAction("List");
+            }
+            return View();
         }
     }
 }

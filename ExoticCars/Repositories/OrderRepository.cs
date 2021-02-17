@@ -24,15 +24,40 @@ namespace ExoticCars.Repositories
             }
         }
 
+        public void DeleteOrder(int orderId)
+        {
+            var order = dbContext.Orders.FirstOrDefault(o => o.OrderID == orderId);
+
+            if(order != null)
+            {
+                dbContext.Orders.Remove(order);
+                dbContext.SaveChanges();
+            }
+        }
+
         public Order GetOrderById(int orderId)
         {
             return dbContext.Orders.FirstOrDefault(c => c.OrderID == orderId);
         }
 
-        public void UpdateOrder(Order order)
+        public IEnumerable<Order> GetOrdersByStatus(string status)
         {
-            if (order != null)
-            {
+            return dbContext.Orders.Where(c => c.Status.Equals(status));
+        }
+
+        public double GetOrderTotal(int orderId)
+        {
+            var total = dbContext.OrderProducts.Where(o => o.OrderID == orderId)
+                .Select(c => c.ProductQuantity * c.Product.SellingPrice + c.ExtraQuantity * c.Extra.ExtraPrice)
+                .Sum();
+
+            return total;
+        }
+
+        public void UpdateOrder(int orderId)
+        {
+            var order = dbContext.Orders.FirstOrDefault(o => o.OrderID == orderId);
+            
                 dbContext.Entry(order).State = EntityState.Modified;
                 try
                 {
@@ -42,7 +67,7 @@ namespace ExoticCars.Repositories
                 {
                     throw;
                 }
-            }
+           
         }
     }
 }

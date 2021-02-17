@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExoticCars.Migrations
 {
     [DbContext(typeof(ExoticCarContext))]
-    [Migration("20210215140059_FixExtraConstraints")]
-    partial class FixExtraConstraints
+    [Migration("20210217135606_NewDatabase")]
+    partial class NewDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -1,0 +1,26 @@
+﻿@model OrderViewModel
+
+<div>
+
+    <div class="row">
+        @foreach (var ord in Model.Orders)
+        {
+            <div class="col-sm-4 mb-2">
+                <div class="card" style="width: 20rem;">
+                    <div>
+                        <img src="https://img.icons8.com/pastel-glyph/2x/purchase-order.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Order Number: @ord.OrderID</p>
+                            <p class="card-text">Order Date: @ord.OrderDate</p>
+                            <div class="row">
+                                <a asp-controller="Order" asp-action="Detail" asp-route-orderId="@ord.OrderID" class="btn btn-danger mr-1 ml-4">Details</a>
+                                <a asp-controller="Order" asp-action="Edit" asp-route-orderId="@ord.OrderID" class="btn btn-info mr-1">Edit</a>
+                                <a asp-controller="Order" asp-action="Delete" asp-route-orderId="@ord.OrderID" class="btn btn-primary mr-1">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

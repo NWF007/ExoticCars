@@ -17,8 +17,9 @@ namespace ExoticCars.Models
         }
         public int OrderID { get; set; }
         public int CustomerID { get; set; }
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+
         [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime OrderDate { get; set; }
         public status Status { get; set; }
         public string Comments { get; set; }

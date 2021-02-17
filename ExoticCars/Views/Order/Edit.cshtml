@@ -6,7 +6,7 @@
     You are about to update @Model.OrderID that was placed on @Model.OrderDate
 </div>
 
-<form asp-action="Edit" method="post" class="form-horizontal" role="form">
+<form asp-action="EditOrder" method="post" class="form-horizontal" role="form">
     <div class="form-group">
         <label asp-for="OrderID" class="col-md-2 control-label"></label>
         <div class="col-md-5">
@@ -18,7 +18,7 @@
     <div class="form-group">
         <label asp-for="CustomerID" class="col-md-2 control-label"></label>
         <div class="col-md-5">
-            <input  asp-for="CustomerID" class="form-control" value="@Model.CustomerID" readonly />
+            <input asp-for="CustomerID" class="form-control" value="@Model.CustomerID" readonly />
             <span asp-validation-for="CustomerID" class="text-danger"></span>
         </div>
     </div>
@@ -26,18 +26,28 @@
     <div class="form-group">
         <label asp-for="OrderDate" class="col-md-2 control-label"></label>
         <div class="col-md-5">
-            <input type="datetime-local" asp-for="OrderDate" class="form-control" value="@Model.OrderDate" readonly />
+            <input asp-for="OrderDate" class="form-control" value="@Html.EditorFor(m => m.OrderDate)" readonly />
             <span asp-validation-for="OrderDate" class="text-danger"></span>
         </div>
     </div>
 
-    <div class="form-group">
-        <label asp-for="Status" class="col-md-2 control-label"></label>
-        <div class="col-md-5">
-            <input asp-for="Status" class="form-control" value="@Model.Status" />
-            <span asp-validation-for="Status" class="text-danger"></span>
-        </div>
+    @*<div class="form-group">
+            <label asp-for="Status" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="Status" class="form-control" value="@Model.Status" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+        </div>*@
+
+<div class="form-group">
+    <label asp-for="Status"></label><br />
+    @*<select class="form-control" asp-for="Status" asp-items="@Html.DropDownListFor(m => Model.Status, Enum.GetNames(typeof(Order.status)).Select(e => new SelectListItem { Text = e })))">
+        </select>*@
+    <div class="row col-5">
+    @Html.DropDownListFor(m => Model.Status, Enum.GetNames(typeof(Order.status)).Select(e => new SelectListItem { Text = e }))
     </div>
+    <span class="text-danger" asp-validation-for="Status"></span>
+</div>
 
     <div class="form-group">
         <label asp-for="Comments" class="col-md-2 control-label"></label>
@@ -56,7 +66,7 @@
     </div>
 
     <div class="form-group">
-        <a asp-controller="Customer" asp-action="List" class="btn btn-default">Cancel</a>
+        <a asp-controller="Order" asp-action="List" class="btn btn-default">Cancel</a>
         <button type="submit" class="btn btn-success">Update</button>
     </div>
 </form>
