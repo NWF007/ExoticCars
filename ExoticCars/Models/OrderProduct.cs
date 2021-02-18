@@ -13,10 +13,17 @@ namespace ExoticCars.Models
         public int ExtraID { get; set; }
         public int ProductQuantity { get; set; }
         public double ExtraQuantity { get; set; }
+        /*public double Price { get
+            {
+                return (ProductQuantity * Product.SellingPrice) + (ExtraQuantity * Extra.ExtraPrice);
+            }
+        } */
+
         public double Price { get; set; }
 
         public virtual Order Order { get; set; }
         public virtual Product Product { get; set; }
         public virtual Extra Extra { get; set; }
+
     }
 }

@@ -5,7 +5,7 @@
 </div>
 
 <form asp-action="Edit" method="post" class="form-horizontal" role="form">
-    <div class="form-group">
+    <div class="form-group" hidden>
         <label asp-for="ExtraID" class="col-md-2 control-label"></label>
         <div class="col-md-5">
             <input asp-for="ExtraID" class="form-control" value="@Model.ExtraID" readonly />

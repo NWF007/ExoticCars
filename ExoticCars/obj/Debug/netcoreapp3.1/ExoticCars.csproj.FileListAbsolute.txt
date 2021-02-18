@@ -101,3 +101,4 @@ C:\Users\Nico\Documents\DMCCode\DMCProjects\ExoticCars\ExoticCars\obj\Debug\netc
 C:\Users\Nico\Documents\DMCCode\DMCProjects\ExoticCars\ExoticCars\obj\Debug\netcoreapp3.1\Razor\Views\Order\Edit.cshtml.g.cs
 C:\Users\Nico\Documents\DMCCode\DMCProjects\ExoticCars\ExoticCars\obj\Debug\netcoreapp3.1\Razor\Views\Order\OrderStatus.cshtml.g.cs
 C:\Users\Nico\Documents\DMCCode\DMCProjects\ExoticCars\ExoticCars\obj\Debug\netcoreapp3.1\ExoticCars.csprojAssemblyReference.cache
+C:\Users\Nico\Documents\DMCCode\DMCProjects\ExoticCars\ExoticCars\obj\Debug\netcoreapp3.1\Razor\Views\Order\Create.cshtml.g.cs

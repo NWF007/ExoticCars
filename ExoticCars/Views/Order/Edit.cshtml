@@ -26,12 +26,13 @@
     <div class="form-group">
         <label asp-for="OrderDate" class="col-md-2 control-label"></label>
         <div class="col-md-5">
+            @*<input asp-for="OrderDate" class="form-control" value="@Html.EditorFor(m => m.OrderDate)" readonly />*@
             <input asp-for="OrderDate" class="form-control" value="@Html.EditorFor(m => m.OrderDate)" readonly />
             <span asp-validation-for="OrderDate" class="text-danger"></span>
         </div>
     </div>
 
-    @*<div class="form-group">
+  @*  <div class="form-group">
             <label asp-for="Status" class="col-md-2 control-label"></label>
             <div class="col-md-5">
                 <input asp-for="Status" class="form-control" value="@Model.Status" />
@@ -39,12 +40,16 @@
             </div>
         </div>*@
 
+
 <div class="form-group">
-    <label asp-for="Status"></label><br />
-    @*<select class="form-control" asp-for="Status" asp-items="@Html.DropDownListFor(m => Model.Status, Enum.GetNames(typeof(Order.status)).Select(e => new SelectListItem { Text = e })))">
-        </select>*@
-    <div class="row col-5">
-    @Html.DropDownListFor(m => Model.Status, Enum.GetNames(typeof(Order.status)).Select(e => new SelectListItem { Text = e }))
+    <label asp-for="Status" class="col-md-2 control-label"></label><br />-->-->
+    <!--@*<select class="form-control" asp-for="Status" asp-items="@Html.DropDownListFor(m => Model.Status, Enum.GetNames(typeof(Order.status)).Select(e => new SelectListItem { Text = e })))">
+        </select>*@-->
+    <div class="col-md-5">
+        <div class="form-control">
+            @Html.DropDownListFor(m => Model.Status, Enum.GetNames(typeof(Order.status))
+                .Select(e => new SelectListItem { Text = e }))
+        </div> 
     </div>
     <span class="text-danger" asp-validation-for="Status"></span>
 </div>

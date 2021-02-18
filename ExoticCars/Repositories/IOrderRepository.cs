@@ -14,6 +14,7 @@ namespace ExoticCars.Repositories
         void DeleteOrder(int orderId);
         double GetOrderTotal(int orderId);
         IEnumerable<Order> GetOrdersByStatus(string status);
+        void PlaceOrder(CustomerOrder customerOrder);
 
     }
 }

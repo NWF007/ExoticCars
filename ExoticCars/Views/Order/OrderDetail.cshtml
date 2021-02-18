@@ -1,14 +1,11 @@
 ﻿@model List<OrderProduct>
 
-@*The table should not display the keys, but the values of the foreign keys..... must fix still.*@
 
 <div class="container">
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                @*<th>OrderProductID</th>*@
                 <th class="text-center">Car</th>
-                @*<th>OrderID</th>*@
                 <th class="text-center">ProductQuantity</th>
                 <th class="text-center">Extra Name</th>
                 <th class="text-center">ExtraQuantity</th>
@@ -27,15 +24,6 @@
                 </tr>
             }
         </tbody>
-        <tfoot>
-            <tr>
-                <td class="text-center"><p></p></td>
-                <td class="text-center"><p></p></td>
-                <td class="text-center"><p></p></td>
-                <td class="text-center"><p>Total Price:</p></td>
-                <td class="text-center"><p>R</p></td>
-            </tr>
-        </tfoot>
     </table>
 
     <div class="form-group">

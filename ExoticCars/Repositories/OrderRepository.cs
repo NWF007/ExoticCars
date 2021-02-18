@@ -54,6 +54,35 @@ namespace ExoticCars.Repositories
             return total;
         }
 
+        public void PlaceOrder(CustomerOrder customerOrder)
+        {
+            var customer = dbContext.Customers.FirstOrDefault(c => c.FirstName == customerOrder.Customer.FirstName);
+            var car = dbContext.Products.FirstOrDefault(c => c.Name == customerOrder.Product.Name);
+            var extra = dbContext.Extras.FirstOrDefault(c => c.ExtraName == customerOrder.Extra.ExtraName);
+
+            OrderProduct orderProduct = new OrderProduct();
+
+            if (customer != null && car != null)
+            {
+                orderProduct.ExtraID = extra.ExtraID;
+                orderProduct.ExtraQuantity = customerOrder.OrderProduct.ExtraQuantity;
+                orderProduct.OrderID = customerOrder.Order.OrderID;
+                orderProduct.ProductID = car.ProductID;
+                orderProduct.ProductQuantity = customerOrder.OrderProduct.ProductQuantity;
+                if(customerOrder.OrderProduct.ExtraQuantity > 0 && customerOrder.Extra.ExtraName != null)
+                {
+                    orderProduct.Price = customerOrder.Product.SellingPrice * customerOrder.OrderProduct.ProductQuantity +
+                        customerOrder.Extra.ExtraPrice * customerOrder.OrderProduct.ExtraQuantity;
+                } else
+                {
+                    orderProduct.Price = customerOrder.Product.SellingPrice * customerOrder.OrderProduct.ProductQuantity;
+                }
+
+                dbContext.OrderProducts.Add(orderProduct);
+                dbContext.SaveChanges();
+            }
+        }
+
         public void UpdateOrder(int orderId)
         {
             var order = dbContext.Orders.FirstOrDefault(o => o.OrderID == orderId);
