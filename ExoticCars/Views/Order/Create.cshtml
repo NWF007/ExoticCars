@@ -2,24 +2,27 @@
 
 <h3 class="text-center">Place your order here!</h3>
 <form asp-action="Create" method="post" class="form-horizontal" role="form">
-@*
-    <div class="form-group">
+
+    @*<div class="form-group">
         <label asp-for="Customer.CustomerID" class="col-md-2 control-label">Quantity</label>
         <div class="col-md-5">
             <input type="number" asp-for="Customer.CustomerID" class="form-control" id="CustomerId" />
             <span asp-validation-for="Customer.CustomerID" class="text-danger"></span>
         </div>
     </div>*@
+
     <div class="form-group">
         <label asp-for="Customer.FirstName" class="col-md-2 control-label">Customer Name</label>
         <div class="col-md-5">
-            <select class="form-control" asp-for="Customer.FirstName">
+            <select class="form-control" asp-for="Customer.CustomerID">
+               
                 @foreach (var cus in Model.Customers)
                 {
-                    <option value="@cus.FirstName">
+                    <option value="@cus.CustomerID">
                         @cus.FirstName
                     </option>
                 }
+               
             </select>
             <span asp-validation-for="Customer.FirstName" class="text-danger"></span>
         </div>
@@ -32,7 +35,7 @@
             <select class="form-control" asp-for="Product.Name" >
                 @foreach (var prod in Model.Products)
                 {
-                    <option value="@prod.Name">
+                    <option value="@prod.ProductID">
                         @prod.Name
                     </option>
                 }
@@ -56,7 +59,7 @@
                 <option></option>
                 @foreach (var ex in Model.Extras)
                 {
-                    <option value="@ex.ExtraName">
+                    <option value="@ex.ExtraID">
                         @ex.ExtraName
                     </option>
                 }

@@ -54,9 +54,9 @@ namespace ExoticCars.Repositories
             return total;
         }
 
-        public void PlaceOrder(CustomerOrder customerOrder)
+        public void PlaceOrder(OrderProduct orderProduct)
         {
-            var customer = dbContext.Customers.FirstOrDefault(c => c.FirstName == customerOrder.Customer.FirstName);
+            /*var customer = dbContext.Customers.FirstOrDefault(c => c.FirstName == customerOrder.Customer.FirstName);
             var car = dbContext.Products.FirstOrDefault(c => c.Name == customerOrder.Product.Name);
             var extra = dbContext.Extras.FirstOrDefault(c => c.ExtraName == customerOrder.Extra.ExtraName);
 
@@ -80,12 +80,23 @@ namespace ExoticCars.Repositories
 
                 dbContext.OrderProducts.Add(orderProduct);
                 dbContext.SaveChanges();
+            }*/
+
+            Order order = new Order();
+            if(orderProduct != null)
+            {
+                dbContext.Orders.Add(order);
+                dbContext.SaveChanges();
+
+                dbContext.OrderProducts.Add(orderProduct);
+                dbContext.SaveChanges();
+
             }
         }
 
-        public void UpdateOrder(int orderId)
+        public void UpdateOrder(Order order)
         {
-            var order = dbContext.Orders.FirstOrDefault(o => o.OrderID == orderId);
+            /*var order = dbContext.Orders.FirstOrDefault(o => o.OrderID == orderId);*/
             
                 dbContext.Entry(order).State = EntityState.Modified;
                 try

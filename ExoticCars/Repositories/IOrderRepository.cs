@@ -10,11 +10,11 @@ namespace ExoticCars.Repositories
     {
         IEnumerable<Order> GetAllOrders { get; }
         Order GetOrderById(int orderId);
-        void UpdateOrder(int orderId);
+        void UpdateOrder(Order order);
         void DeleteOrder(int orderId);
         double GetOrderTotal(int orderId);
         IEnumerable<Order> GetOrdersByStatus(string status);
-        void PlaceOrder(CustomerOrder customerOrder);
+        void PlaceOrder(OrderProduct orderProduct);
 
     }
 }

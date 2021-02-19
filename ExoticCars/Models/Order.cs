@@ -19,10 +19,10 @@ namespace ExoticCars.Models
         public int CustomerID { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
-        public DateTime OrderDate { get; set; }
-        public status Status { get; set; }
-        public string Comments { get; set; }
+        /*[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]*/
+        public DateTime OrderDate { get; set; } = DateTime.Now;
+        public status Status { get; set; } = status.OrderPlaced;
+        public string Comments { get; set; } = "Order was placed successfully";
         /*public double TotalAmount { get
             {
                 return OrderProducts.Sum(x => x.Price);
@@ -34,5 +34,11 @@ namespace ExoticCars.Models
         public virtual Customer Customer { get; set; }
         public virtual ICollection<OrderProduct> OrderProducts { get; set; }
             = new List<OrderProduct>();
+
+        public virtual List<string> Statuses()
+        {
+            string[] names = Enum.GetNames(typeof(status));
+            return names.ToList();
+        }
     }
 }
