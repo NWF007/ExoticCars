@@ -12,5 +12,6 @@ namespace ExoticCars.Models
         public Product Product { get; set; }
         public Extra Extra { get; set; }
         public OrderProduct OrderProduct { get; set; }
+
     }
 }

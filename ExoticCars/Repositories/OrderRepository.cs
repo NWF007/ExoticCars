@@ -85,10 +85,23 @@ namespace ExoticCars.Repositories
             Order order = new Order();
             if(orderProduct != null)
             {
+                /*order.CustomerID = orderProduct.Order.CustomerID;
+                
                 dbContext.Orders.Add(order);
-                dbContext.SaveChanges();
-
-                dbContext.OrderProducts.Add(orderProduct);
+                dbContext.SaveChanges();*/
+                /* System.Diagnostics.Debug.WriteLine(orderProduct.Product.ProductID);*/
+                OrderProduct ord = new OrderProduct();
+                ord.OrderID = 2;
+                ord.ProductID = orderProduct.ProductID;
+                ord.ExtraID = orderProduct.Extra.ExtraID;
+                ord.ProductQuantity = orderProduct.ProductQuantity;
+                ord.ExtraQuantity = orderProduct.ExtraQuantity;
+                ord.Price = 200000;
+/*
+                orderProduct.OrderID = 2;
+                orderProduct.Price = 120000;
+                orderProduct.ExtraID = 6;*/
+                dbContext.OrderProducts.Add(ord);
                 dbContext.SaveChanges();
 
             }

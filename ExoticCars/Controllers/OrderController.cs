@@ -62,8 +62,11 @@ namespace ExoticCars.Controllers
             {
                 Products = products,
                 Extras = extras,
-                Customers = customers
-            });
+                Customers = customers,
+                /*OrderProduct = new OrderProduct(),
+                Customer = new Customer()*/
+                OrderProduct = new OrderProduct()
+            }); ;
         }
 
         [HttpPost]
