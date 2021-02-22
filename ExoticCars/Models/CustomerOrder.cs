@@ -16,8 +16,15 @@ namespace ExoticCars.Models
         [Required]
         public int ProductQuantity { get; set; }
 
-        public int ExtraID { get; set; } 
+        public int ExtraID { get; set; }
         public double ExtraQuantity { get; set; }
-        public double Price { get; set; } 
+        public double Price { get; set; }
+/*
+        public List<int> ProductID { get; set; }
+        [Required]
+        public List<int> ProductQuantity { get; set; }*/
+
+        /*public List<int> ExtraID { get; set; }
+        public List<double> ExtraQuantity { get; set; }*/
     }
 }

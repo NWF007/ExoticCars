@@ -92,15 +92,16 @@ namespace ExoticCars.Controllers
             return View(order);
         }
 
-        public IActionResult OrderStatus(string status)
+        public IActionResult UpdateOrder(int orderId)
         {
-            IEnumerable<Order> orders;
-            orders = orderRepository.GetOrdersByStatus(status);
+            var orderDetail = orderProductRepository.GetOrderProductDetails(orderId);
 
-            return View(new OrderViewModel
+            /*return View(new OrderViewModel
             {
                 Orders = orders
-            });
+            });*/
+            /*return View(orderDetail);*/
+            return View();
         }
 
         public IActionResult OrderDetail(int orderId)
@@ -179,7 +180,7 @@ namespace ExoticCars.Controllers
         [HttpPost]
         public IActionResult DeleteOrder(int orderId)
         {
-            if (orderId != null)
+            if (orderId > 0)
             {
                 orderRepository.DeleteOrder(orderId);
                 return RedirectToAction("List");

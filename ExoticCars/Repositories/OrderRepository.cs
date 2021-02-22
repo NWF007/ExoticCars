@@ -66,6 +66,9 @@ namespace ExoticCars.Repositories
                 Product prod = dbContext.Products.FirstOrDefault(p => p.ProductID == customerOrder.ProductID);
                 Extra ex = dbContext.Extras.FirstOrDefault(e => e.ExtraID == customerOrder.ExtraID);
 
+                /*List < Extra > ex = dbContext.Extras.Find().ExtraID;*/
+
+                /*Create order*/
                 order.CustomerID = cust.CustomerID;
                 order.TotalAmount = prod.SellingPrice * customerOrder.ProductQuantity + (ex.ExtraPrice * customerOrder.ExtraQuantity);
 
