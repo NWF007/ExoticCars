@@ -65,16 +65,17 @@ namespace ExoticCars.Controllers
                 Customers = customers,
                 /*OrderProduct = new OrderProduct(),
                 Customer = new Customer()*/
-                OrderProduct = new OrderProduct()
-            }); ;
+                OrderProduct = new OrderProduct(),
+                CustomerOrder = new CustomerOrder()
+            }); 
         }
 
         [HttpPost]
-        public IActionResult Create(OrderProduct orderProduct)
+        public IActionResult Create(CustomerOrder customerOrder)
         {
             if (ModelState.IsValid)
             {
-                orderRepository.PlaceOrder(orderProduct);
+                orderRepository.PlaceOrder(customerOrder);
                 return RedirectToAction("List");
             }
             return View();
@@ -105,7 +106,7 @@ namespace ExoticCars.Controllers
         public IActionResult OrderDetail(int orderId)
         {
             var orderDetail = orderProductRepository.GetOrderProductDetails(orderId);
-            var orderTotal = orderRepository.GetOrderTotal(orderId);
+            /*var orderTotal = orderRepository.GetOrderTotal(orderId);*/
             return View(orderDetail);
         }
 

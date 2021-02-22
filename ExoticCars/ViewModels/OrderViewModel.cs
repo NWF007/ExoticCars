@@ -18,5 +18,6 @@ namespace ExoticCars.ViewModels
         public Extra Extra { get; set; }
 
         public OrderProduct OrderProduct { get; set; }
+        public CustomerOrder CustomerOrder { get; set; }
     }
 }

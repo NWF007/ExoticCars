@@ -19,17 +19,12 @@ namespace ExoticCars.Models
         public int CustomerID { get; set; }
 
         [DataType(DataType.Date)]
-        /*[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]*/
         public DateTime OrderDate { get; set; } = DateTime.Now;
         public status Status { get; set; } = status.OrderPlaced;
         public string Comments { get; set; } = "Order was placed successfully";
-        /*public double TotalAmount { get
-            {
-                return OrderProducts.Sum(x => x.Price);
-            }
-        }*/
+        
 
-        public int TotalAmount { get; set; }
+        public double TotalAmount { get; set; }
 
         public virtual Customer Customer { get; set; }
         public virtual ICollection<OrderProduct> OrderProducts { get; set; }

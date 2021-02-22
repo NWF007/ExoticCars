@@ -3,18 +3,10 @@
 <h3 class="text-center">Place your order here!</h3>
 <form asp-action="Create" method="post" class="form-horizontal" role="form">
 
-    @*<div class="form-group">
-        <label asp-for="Customer.CustomerID" class="col-md-2 control-label">Quantity</label>
-        <div class="col-md-5">
-            <input type="number" asp-for="Customer.CustomerID" class="form-control" id="CustomerId" />
-            <span asp-validation-for="Customer.CustomerID" class="text-danger"></span>
-        </div>
-    </div>*@
-
-    @*<div class="form-group">
+    <div class="form-group">
         <label asp-for="Customer.FirstName" class="col-md-2 control-label">Customer Name</label>
         <div class="col-md-5">
-            <select class="form-control" asp-for="Customer.CustomerID">
+            <select class="form-control" asp-for="Customer.CustomerID" name="CustomerID" required>
                
                 @foreach (var cus in Model.Customers)
                 {
@@ -25,13 +17,13 @@
             </select>
             <span asp-validation-for="Customer.FirstName" class="text-danger"></span>
         </div>
-    </div>*@
+    </div>
 
     <div class="form-group">
         <label asp-for="Product.Name" class="col-md-2 control-label">Car</label>
         <div class="col-md-5">
 
-            <select class="form-control" asp-for="Product.ProductID" >
+            <select class="form-control" asp-for="Product.ProductID" name="ProductID" required>
                 @foreach (var prod in Model.Products)
                 {
                     <option value="@prod.ProductID">
@@ -46,7 +38,7 @@
     <div class="form-group">
         <label asp-for="OrderProduct.ProductQuantity" class="col-md-2 control-label">Quantity</label>
         <div class="col-md-5">
-            <input type="number" asp-for="OrderProduct.ProductQuantity" class="form-control" placeholder="1" />
+            <input type="number" asp-for="OrderProduct.ProductQuantity" class="form-control" placeholder="1" name="ProductQuantity" required/>
             <span asp-validation-for="OrderProduct.ProductQuantity" class="text-danger"></span>
         </div>
     </div>
@@ -54,12 +46,12 @@
     <div class="form-group">
         <label asp-for="Extra.ExtraName" class="col-md-2 control-label">Extra Name</label>
         <div class="col-md-5">
-            <select class="form-control" asp-for="Extra.ExtraID">
+            <select class="form-control" asp-for="Extra.ExtraID" name="ExtraID">
                 <option></option>
                 @foreach (var ex in Model.Extras)
                 {
                     <option value="@ex.ExtraID">
-                        @ex.ExtraID
+                        @ex.ExtraName
                     </option>
                 }
             </select>
@@ -70,7 +62,7 @@
     <div class="form-group">
         <label asp-for="OrderProduct.ExtraQuantity" class="col-md-2 control-label">Extra Quantity</label>
         <div class="col-md-5">
-            <input type="number" asp-for="OrderProduct.ExtraQuantity" class="form-control" placeholder="0" />
+            <input type="number" asp-for="OrderProduct.ExtraQuantity" class="form-control" placeholder="0" name="ExtraQuantity" />
             <span asp-validation-for="OrderProduct.ExtraQuantity" class="text-danger"></span>
         </div>
     </div>

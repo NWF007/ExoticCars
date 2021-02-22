@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,11 +8,16 @@ namespace ExoticCars.Models
 {
     public class CustomerOrder
     {
-        public Customer Customer { get; set; }
-        public Order Order { get; set; }
-        public Product Product { get; set; }
-        public Extra Extra { get; set; }
-        public OrderProduct OrderProduct { get; set; }
+        public int OrderID { get; set; }
+        [Required]
+        public int CustomerID { get; set; }
+        [Required]
+        public int ProductID { get; set; }
+        [Required]
+        public int ProductQuantity { get; set; }
 
+        public int ExtraID { get; set; } 
+        public double ExtraQuantity { get; set; }
+        public double Price { get; set; } 
     }
 }
