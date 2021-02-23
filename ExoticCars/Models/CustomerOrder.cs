@@ -12,7 +12,7 @@ namespace ExoticCars.Models
         [Required]
         public int CustomerID { get; set; }
         [Required]
-        public int ProductID { get; set; }
+        public int[] ProductID { get; set; }
         [Required]
         public int ProductQuantity { get; set; }
 
