@@ -2,28 +2,36 @@
 @model Order
 
 
-<div class="card" style="width: 20rem;">
-    <img src="https://img.icons8.com/pastel-glyph/2x/purchase-order.png" class="card-img-top" alt="...">
-    <div class="card-body">
-        @*<h4 class="card-title">Order By: @Model.Customer.FirstName</h4>*@
-        <h4>
-            Date: @Model.OrderDate
-        </h4>
-        <h4>
-            Status: @Model.Status
-        </h4>
-        <p>Comment: @Model.Comments</p>
-        <h4>
-            Total: @Model.TotalAmount
-        </h4>
-        <div class="row">
-            <a class="btn btn-primary mr-4"
-               asp-controller="Order"
-               asp-action="List">Back</a>
-            <a class="btn btn-info ml-3"
-               asp-controller="Order"
-               asp-action="OrderDetail"
-               asp-route-orderId="@Model.OrderID">Order Confirmation</a>
+<div class="container">
+    <div class="col-4">
+        <div class="card" style="width: 20rem;">
+            <img src="https://img.icons8.com/pastel-glyph/2x/purchase-order.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                @*<h4 class="card-title">Order By: @Model.Customer.FirstName</h4>*@
+                <h4>
+                    Date: @Model.OrderDate
+                </h4>
+                <h4>
+                    Status: @Model.Status
+                </h4>
+                <p>Comment: @Model.Comments</p>
+                <h4>
+                    Total: @Model.TotalAmount
+                </h4>
+                <div class="row">
+                    <a class="btn btn-primary mr-4"
+                       asp-controller="Order"
+                       asp-action="List">Back</a>
+                    <a class="btn btn-info ml-3"
+                       asp-controller="Order"
+                       asp-action="OrderDetail"
+                       asp-route-orderId="@Model.OrderID">Order Confirmation</a>
+                </div>
+            </div>
         </div>
     </div>
+
+    @*<div class="col-8">
+        <partial name="_OrderDetail" />
+    </div>*@
 </div>

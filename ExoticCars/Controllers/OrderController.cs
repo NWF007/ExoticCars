@@ -32,14 +32,6 @@ namespace ExoticCars.Controllers
             ViewBag.Message =  "All the orders are here";
             IEnumerable<Order> orders;
 
-            /*if (string.IsNullOrEmpty(status))
-            {
-                orders = orderRepository.GetAllOrders;
-
-            } else
-            {
-                orders = orderRepository.GetAllOrders.Where(o => o.Status.Equals(status)).OrderBy(o => o.OrderID);
-            }*/
             orders = orderRepository.GetAllOrders;
 
             return View(new OrderViewModel
@@ -66,8 +58,9 @@ namespace ExoticCars.Controllers
                 /*OrderProduct = new OrderProduct(),
                 Customer = new Customer()*/
                 OrderProduct = new OrderProduct(),
-                CustomerOrder = new CustomerOrder()
-            }); 
+                CustomerOrder = new CustomerOrder(),
+                
+            }) ; 
         }
 
         [HttpPost]
@@ -92,17 +85,31 @@ namespace ExoticCars.Controllers
             return View(order);
         }
 
-        public IActionResult UpdateOrder(int orderId)
+        public IActionResult Extras(int orderId,int productId)
         {
-            var orderDetail = orderProductRepository.GetOrderProductDetails(orderId);
-
-            /*return View(new OrderViewModel
+            var extras = extraRepository.GetExtras;
+            return View(new ExtraViewModel
             {
-                Orders = orders
-            });*/
-            /*return View(orderDetail);*/
+                Extras = extras
+            });
+        }
+
+        [HttpPost]
+        public IActionResult Extras([FromRoute] int orderID, int productID, ProductExtras productExtras)
+        {
+            if (productExtras != null)
+            {
+                /* var orderToUpdate = orderRepository.GetOrderById(order);*/
+                var ordId = orderID;
+                var prodId = productID;
+                System.Diagnostics.Debug.WriteLine(productExtras);
+                /* orderRepository.UpdateOrder(order);
+
+                 return RedirectToAction("List");*/
+            }
             return View();
         }
+
 
         public IActionResult OrderDetail(int orderId)
         {

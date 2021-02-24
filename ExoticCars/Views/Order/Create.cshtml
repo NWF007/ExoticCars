@@ -6,20 +6,20 @@
 
     <div class="form-group">
         <label asp-for="Customer.FirstName" class="col-md-2 control-label">Customer Name</label>
-        <div class="multiselect">
-            <div class="col-md-5">
-                <select class="form-control" asp-for="Customer.CustomerID" name="CustomerID" required>
-                    @foreach (var cus in Model.Customers)
-                    {
-                            <option value="@cus.CustomerID">
-                                @cus.FirstName @cus.LastName
-                            </option>
-                       
-                    }
-                </select>
-            </div>
-            <span asp-validation-for="Customer.FirstName" class="text-danger"></span>
+        @*<div class="multiselect">*@
+        <div class="col-md-5">
+            <select class="form-control" asp-for="Customer.CustomerID" name="CustomerID" required>
+                @foreach (var cus in Model.Customers)
+                {
+                    <option value="@cus.CustomerID">
+                        @cus.FirstName @cus.LastName
+                    </option>
+
+                }
+            </select>
         </div>
+        <span asp-validation-for="Customer.FirstName" class="text-danger"></span>
+        @*</div>*@
     </div>
 
     <div class="form-group">
@@ -29,60 +29,37 @@
             @*<select class="form-control" asp-for="Product.ProductID" name="ProductID[]" required>*@
             @foreach (var prod in Model.Products)
             {
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox"
-                               name="ProductID[]" 
-                               value="@prod.ProductID"
-                                /> @prod.Name @prod.Model
+                <div class="checkbox" id="dropdownlist">
+                    <label >
+                        <input 
+                               type="checkbox"
+                               id="dropdownlist"
+                               name="ProductID[]"
+                               value="@prod.ProductID" /> @prod.Name @prod.Model
 
                             @*<optgroup>
-                <option value="@prod.ProductID">
-                    @prod.Name
-                </option>
-            </optgroup>*@
+                                    <option value="@prod.ProductID">
+                                        @prod.Name
+                                    </option>
+                                </optgroup>*@
                             @*<label><input type="checkbox" value="@prod.ProductID" name="@prod.ProductID" />@prod.Name @prod.Model</label>*@
-                            }
+
                             @*</select>*@
                             <span asp-validation-for="Product.Name" class="text-danger"></span>
                         </label>
-                </div>
-            }
-            </div>
-            </div>
+                       @* <div id="inputArea"></div>*@
+                    </div>
+                }
+        </div>
+    </div>
 
     <div class="form-group" hidden>
         <label asp-for="OrderProduct.ProductQuantity" class="col-md-2 control-label">Quantity</label>
         <div class="col-md-5">
-            <input type="number" asp-for="OrderProduct.ProductQuantity" class="form-control" value="1" name="ProductQuantity" required  />
+            <input type="number" asp-for="OrderProduct.ProductQuantity" class="form-control" value="1" name="ProductQuantity" required />
             <span asp-validation-for="OrderProduct.ProductQuantity" class="text-danger"></span>
         </div>
     </div>
-
-    <div class="form-group">
-        <label asp-for="Extra.ExtraName" class="col-md-2 control-label">Extra Name</label>
-        <div class="col-md-5">
-            <select class="form-control" asp-for="Extra.ExtraID" name="ExtraID">
-                <option value="null"></option>
-                @foreach (var ex in Model.Extras)
-                {
-                    <option value="@ex.ExtraID">
-                        @ex.ExtraName
-                    </option>
-                }
-            </select>
-            <span asp-validation-for="Extra.ExtraName" class="text-danger"></span>
-        </div>
-    </div>
-
-    <div class="form-group" hidden>
-        <label asp-for="OrderProduct.ExtraQuantity" class="col-md-2 control-label">Extra Quantity</label>
-        <div class="col-md-5">
-            <input type="number" asp-for="OrderProduct.ExtraQuantity" class="form-control" value="1" name="ExtraQuantity" />
-            <span asp-validation-for="OrderProduct.ExtraQuantity" class="text-danger"></span>
-        </div>
-    </div>
-
 
     <div class="form-group row">
         <div class="col-md-offset-2 col-md-5">
@@ -91,3 +68,18 @@
         </div>
     </div>
 </form>
+
+
+
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+</script>*@
+
+
+<script>
+    $('#dropdownlist').attr('checked', true,);
+@*$("#dropdownlist").change(function () {
+    var numInputs = $(this).val();
+    for (var i = 0; i < numInputs; i++)
+        $("#inputArea").append('<input name="inputs[]" />');
+});*@
+</script>

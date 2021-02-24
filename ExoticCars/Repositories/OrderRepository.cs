@@ -66,36 +66,43 @@ namespace ExoticCars.Repositories
             if (customerOrder != null)
             {
                 Customer cust = dbContext.Customers.FirstOrDefault(c => c.CustomerID == customerOrder.CustomerID); /*Find Customer*/
-                Extra ex = dbContext.Extras.FirstOrDefault(e => e.ExtraID == customerOrder.ExtraID); /*Find Extra*/
+                /*Extra ex = dbContext.Extras.FirstOrDefault(e => e.ExtraID == customerOrder.ExtraID);*/ /*Find Extra*/
 
                 order.CustomerID = cust.CustomerID;
-                /*var orderProductsTotalPrice = dbContext.OrderProducts.Where(o => o.OrderID == order.OrderID).Select(o => o.Price);*/
-                /*order.TotalAmount = orderProductsTotalPrice;*/
+               
 
                 dbContext.Orders.Add(order);
                 dbContext.SaveChanges();
 
-                OrderProduct ord = new OrderProduct();
                 double totPrice = 0;
 
                 foreach (var id in customerOrder.ProductID) /*Loop through array of product ID's*/
                 {
+                    OrderProduct ord = new OrderProduct();
                     Product prod = dbContext.Products.FirstOrDefault(p => p.ProductID == id); /*Find each product selected in checkboxes*/
-
+                 
                     ord.OrderID = order.OrderID;
                     ord.ProductID = prod.ProductID;
-                    ord.ExtraID = customerOrder.ExtraID;
+                   /* ord.ExtraID = null;*/
                     ord.ProductQuantity = customerOrder.ProductQuantity;
-                    ord.ExtraQuantity = customerOrder.ExtraQuantity;
-                    ord.Price = prod.SellingPrice * customerOrder.ProductQuantity + (ex.ExtraPrice * customerOrder.ExtraQuantity);
+                    /*ord.ExtraQuantity = null;*/
+                    ord.Price = prod.SellingPrice * customerOrder.ProductQuantity;
                     totPrice += ord.Price;
                     dbContext.OrderProducts.Add(ord);
-                    /*dbContext.SaveChanges();*/
+            
+                    dbContext.SaveChanges();
                 }
 
-                order.TotalAmount = totPrice;
+                /*order.TotalAmount = totPrice;*/
 
-                var orderProductsTotalPrice = dbContext.OrderProducts.Where(o => o.OrderID == ord.OrderID).Select(o => o.Price).Sum();
+                /*Find the other, set the total amount and update order*/
+                /*Order updateOrder = dbContext.Orders.Where(o => o.OrderID == order.OrderID).Include(OrderProducts);
+                updateOrder.TotalAmount = totPrice;
+                dbContext.Entry(updateOrder).State = EntityState.Modified;
+                dbContext.SaveChanges();
+*/
+
+               /* var orderProductsTotalPrice = dbContext.OrderProducts.Where(o => o.OrderID == ord.OrderID).Select(o => o.Price).Sum();*/
 
                 /* var orderProductsTotalPrice = dbContext.OrderProducts.Where(o => o.OrderID == order.OrderID).Select(o => o.Price).Sum();
                  order.TotalAmount = orderProductsTotalPrice;

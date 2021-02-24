@@ -19,5 +19,6 @@ namespace ExoticCars.ViewModels
 
         public OrderProduct OrderProduct { get; set; }
         public CustomerOrder CustomerOrder { get; set; }
+        /*public int[] productIDs { get; set; }*/
     }
 }

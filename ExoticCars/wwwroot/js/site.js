@@ -3,7 +3,7 @@
 
 // Write your JavaScript code.
 
-function showCheckboxes() {
+/*function showCheckboxes() {
     var checkboxes = document.getElementById("checkboxes");
     if (!expanded) {
         checkboxes.style.display = "block";
@@ -12,4 +12,27 @@ function showCheckboxes() {
         checkboxes.style.display = "none";
         expanded = false;
     }
-}
+}*/
+
+
+/*$("#dropdownlist").change(function () {
+    var numInputs = $(this).val();
+    for (var i = 0; i < numInputs; i++)
+        $("#inputArea").append('<input name="inputs[]" />');
+});*/
+
+/*<script>
+    $('#dropdownlist').attr('checked', true;)
+*//*$("#dropdownlist").change(function () {
+    var numInputs = $(this).val();
+    for (var i = 0; i < numInputs; i++)
+        $("#inputArea").append('<input name="inputs[]" />');
+});*//*
+</script>*/
+
+/*
+<script type="text/javascript" src="../src/jquery.multi-select.js"></script>
+<script type="text/javascript">
+        $(function () {
+        $('#productID').multiSelect();
+</script>*/

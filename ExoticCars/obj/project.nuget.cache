@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "dtcIwGzqa1unh6Vy/tBf3j9x/vGTubVJM66B2VakCU2bL6s7WZt6hZ95hqglNvzo6lSrmEVJc498PzD+YMUcXg==",
+  "dgSpecHash": "3owZmgUCTrjstKspcHOR73nABEWd+jYWqX8CyPwLI0fc2pu1mQSeqE64MyuNZ9SOh5JTs0ABxiBla0Png+UYjg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nico\\Documents\\DMCCode\\DMCProjects\\ExoticCars\\ExoticCars\\ExoticCars.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Nico\\.nuget\\packages\\fontawesome\\4.7.0\\fontawesome.4.7.0.nupkg.sha512",
     "C:\\Users\\Nico\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.12\\microsoft.aspnetcore.cryptography.internal.3.1.12.nupkg.sha512",
     "C:\\Users\\Nico\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.12\\microsoft.aspnetcore.cryptography.keyderivation.3.1.12.nupkg.sha512",
     "C:\\Users\\Nico\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\3.1.12\\microsoft.aspnetcore.identity.entityframeworkcore.3.1.12.nupkg.sha512",
