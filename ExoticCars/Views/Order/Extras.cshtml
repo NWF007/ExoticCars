@@ -3,6 +3,23 @@
 <h3>You are about to add extras</h3>
 
 <form asp-action="Extras" method="post" class="form-horizontal" role="form">
+
+    <div class="form-group" >
+        <label asp-for="ProductExtra.OrderID" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="ProductExtra.OrderID" class="form-control" name="OrderID" value="@Model.Order.OrderID" readonly />
+            <span asp-validation-for="ProductExtra.OrderID" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group" >
+        <label asp-for="ProductExtra.ProductID" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="ProductExtra.ProductID" class="form-control" name="ProductID" value="@Model.Product.ProductID" readonly />
+            <span asp-validation-for="ProductExtra.ProductID" class="text-danger"></span>
+        </div>
+    </div>
+
     <div class="form-group">
         <label asp-for="Extra.ExtraName" class="col-md-2 control-label">Select Extras</label>
         <div class="col-md-5">
@@ -16,9 +33,9 @@
                                id="dropdownlist"
                                name="ExtraID[]"
                                value="@ex.ExtraID" /> @ex.ExtraName - @ex.ExtraPrice
-                    <span asp-validation-for="Extra.ExtraName" class="text-danger"></span>
-                    </label>
-                        
+                            <span asp-validation-for="Extra.ExtraName" class="text-danger"></span>
+                        </label>
+
                     </div>
                 }
         </div>

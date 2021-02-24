@@ -88,20 +88,25 @@ namespace ExoticCars.Controllers
         public IActionResult Extras(int orderId,int productId)
         {
             var extras = extraRepository.GetExtras;
+            var order = orderRepository.GetOrderById(orderId);
+            var product = productRepository.GetProductId(productId);
             return View(new ExtraViewModel
             {
-                Extras = extras
+                Extras = extras,
+                Order = order,
+                Product = product,
+                ProductExtra = new ProductExtras()
             });
         }
 
         [HttpPost]
-        public IActionResult Extras([FromRoute] int orderID, int productID, ProductExtras productExtras)
+        public IActionResult Extras(ProductExtras productExtras)
         {
             if (productExtras != null)
             {
                 /* var orderToUpdate = orderRepository.GetOrderById(order);*/
-                var ordId = orderID;
-                var prodId = productID;
+                /*var ordId = orderID;
+                var prodId = productID;*/
                 System.Diagnostics.Debug.WriteLine(productExtras);
                 /* orderRepository.UpdateOrder(order);
 
