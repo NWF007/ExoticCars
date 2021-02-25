@@ -1,37 +1,68 @@
-﻿
-@model Order
+﻿@model OrderViewModel
 
 
 <div class="container">
-    <div class="col-4">
-        <div class="card" style="width: 20rem;">
-            <img src="https://img.icons8.com/pastel-glyph/2x/purchase-order.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                @*<h4 class="card-title">Order By: @Model.Customer.FirstName</h4>*@
-                <h4>
-                    Date: @Model.OrderDate
-                </h4>
-                <h4>
-                    Status: @Model.Status
-                </h4>
-                <p>Comment: @Model.Comments</p>
-                <h4>
-                    Total: @Model.TotalAmount
-                </h4>
-                <div class="row">
-                    <a class="btn btn-primary mr-4"
-                       asp-controller="Order"
-                       asp-action="List">Back</a>
-                    <a class="btn btn-info ml-3"
-                       asp-controller="Order"
-                       asp-action="OrderDetail"
-                       asp-route-orderId="@Model.OrderID">Order Confirmation</a>
+    <div class="row">
+        <div class="col-3 ">
+            <div class="card mr-5" style="width: 20rem;">
+                <img src="https://img.icons8.com/pastel-glyph/2x/purchase-order.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    @*<h4 class="card-title">Order By: @Model.Customer.FirstName</h4>*@
+                    <h4>
+                        Date: @Model.Order.OrderDate
+                    </h4>
+                    <h4>
+                        Status: @Model.Order.Status
+                    </h4>
+                    <p>Comment: @Model.Order.Comments</p>
+                    <h4>
+                        Total: @Model.Order.TotalAmount
+                    </h4>
+                    <div class="row">
+                        <a class="btn btn-primary mr-4"
+                           asp-controller="Order"
+                           asp-action="List">Back</a>
+                        @*<a class="btn btn-info ml-3"
+                           asp-controller="Order"
+                           asp-action="OrderDetail"
+                           asp-route-orderId="@Model.Order.OrderID">Order Confirmation</a>*@
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="col-1"></div>
 
-    @*<div class="col-8">
-        <partial name="_OrderDetail" />
-    </div>*@
+        <div class="col-8">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center">Car</th>
+                        <th class="text-center"></th>
+                        <th class="text-center">Optional Extras</th>
+                        @*<th class="text-center">ExtraQuantity</th>*@
+                        <th class="text-center">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var el in Model.OrderProducts)
+                    {
+                        <tr>
+                            <td class="text-center"><p>@Html.DisplayFor(m => el.Product.Name)</p></td>
+                            <td class="text-center"><p> <a asp-controller="Order" asp-action="Extras"
+                                                           asp-route-orderID="@el.OrderID" asp-route-productID="@el.ProductID" 
+                                                           class="btn btn-info">Add Extras</a></p></td>
+                            <td class="text-center">
+                                @foreach(var exName in el.Extra.ExtraName)
+                                {
+                                    <p>@Html.DisplayFor(m => exName) </p>
+                                }
+                            </td>
+                            @* <td class="text-center"><p>@Html.DisplayFor(m => el.ExtraQuantity)</p></td>*@
+                            <td class="text-center"><p>@Html.DisplayFor(m => el.Price)</p></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>            
+        </div>
+    </div>
 </div>

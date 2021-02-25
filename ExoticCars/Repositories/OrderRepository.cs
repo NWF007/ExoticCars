@@ -24,6 +24,31 @@ namespace ExoticCars.Repositories
             }
         }
 
+        public void AddExtras(ProductExtras productExtras)
+        {
+            if(productExtras != null)
+            {
+                var order = dbContext.Orders.FirstOrDefault(o => o.OrderID == productExtras.OrderID);
+                var product = dbContext.Products.FirstOrDefault(p => p.ProductID == productExtras.ProductID);
+
+                foreach(var prod in productExtras.ExtraID)
+                {
+                    OrderProduct ordProd = new OrderProduct();
+                    Extra ex = dbContext.Extras.FirstOrDefault(e => e.ExtraID == prod);
+
+                    ordProd.ProductID = product.ProductID;
+                    ordProd.OrderID = order.OrderID;
+                    ordProd.ProductQuantity = 1;
+                    ordProd.ExtraID = ex.ExtraID;
+                    ordProd.ExtraQuantity = 1;
+                    ordProd.Price = (double)(ex.ExtraPrice * ordProd.ExtraQuantity);
+
+                    dbContext.OrderProducts.Add(ordProd);
+                    dbContext.SaveChanges();
+                }
+            }
+        }
+
         public void DeleteOrder(int orderId)
         {
             var order = dbContext.Orders.FirstOrDefault(o => o.OrderID == orderId);
@@ -33,6 +58,13 @@ namespace ExoticCars.Repositories
                 dbContext.Orders.Remove(order);
                 dbContext.SaveChanges();
             }
+        }
+
+        public IEnumerable<OrderProduct> GetExtrasByCarOnOrder(int orderId, int productId)
+        {
+            var extras = dbContext.OrderProducts.Where(o => (o.OrderID == orderId) && (o.ProductID == productId));
+
+            return extras;
         }
 
         public Order GetOrderById(int orderId)

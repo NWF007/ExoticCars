@@ -79,10 +79,18 @@ namespace ExoticCars.Controllers
             ViewBag.Message = "View Customer Details";
 
             var order = orderRepository.GetOrderById(orderId);
+            var orderDetail = orderProductRepository.GetOrderProductDetails(orderId);
+
+/*            var extras = orderRepository.GetExtrasByCarOnOrder(orderId, productId);
+*/
+
             if (order == null)
                 return NotFound();
 
-            return View(order);
+            return View(new OrderViewModel{
+                Order = order,
+                OrderProducts = orderDetail
+            });
         }
 
         public IActionResult Extras(int orderId,int productId)
@@ -107,10 +115,10 @@ namespace ExoticCars.Controllers
                 /* var orderToUpdate = orderRepository.GetOrderById(order);*/
                 /*var ordId = orderID;
                 var prodId = productID;*/
-                System.Diagnostics.Debug.WriteLine(productExtras);
-                /* orderRepository.UpdateOrder(order);
+                /*System.Diagnostics.Debug.WriteLine(productExtras);*/
+                orderRepository.AddExtras(productExtras);
 
-                 return RedirectToAction("List");*/
+                return RedirectToAction("List");
             }
             return View();
         }

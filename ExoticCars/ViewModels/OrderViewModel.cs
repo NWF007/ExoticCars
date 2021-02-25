@@ -12,6 +12,7 @@ namespace ExoticCars.ViewModels
         public IEnumerable<Product> Products { get; set; }
         public IEnumerable<Customer> Customers { get; set; }
         public IEnumerable<Extra> Extras { get; set; }
+        public IEnumerable<OrderProduct> OrderProducts { get; set; }
         public Order Order { get; set; }
         public Customer Customer { get; set; }
         public Product Product { get; set; }
