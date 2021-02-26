@@ -12,14 +12,15 @@ namespace ExoticCars.Controllers
     public class OrderController : Controller
     {
         Order orderObj;
-        /*Customer customerObj;*/
         private readonly IOrderRepository orderRepository;
         private readonly ICustomerRepository customerRepository;
         private readonly IProductRepository productRepository;
         private readonly IExtraRepository extraRepository;
         private readonly IOrderProductRepository orderProductRepository;
 
-        public OrderController(IOrderRepository orderRepository, ICustomerRepository customerRepository, IProductRepository productRepository, IExtraRepository extraRepository, IOrderProductRepository orderProductRepository)
+        public OrderController(IOrderRepository orderRepository, 
+            ICustomerRepository customerRepository, IProductRepository productRepository, 
+            IExtraRepository extraRepository, IOrderProductRepository orderProductRepository)
         {
             this.orderRepository = orderRepository;
             this.customerRepository = customerRepository;
@@ -27,12 +28,19 @@ namespace ExoticCars.Controllers
             this.extraRepository = extraRepository;
             this.orderProductRepository = orderProductRepository;
         }
-        public IActionResult List(string status)
+        public IActionResult List(int? customerId)
         {
             ViewBag.Message =  "All the orders are here";
             IEnumerable<Order> orders;
 
-            orders = orderRepository.GetAllOrders;
+            if(customerId == null)
+            {
+                orders = orderRepository.GetAllOrders;
+            }
+            else
+            {
+                orders = orderRepository.GetOrdersByCustomerId(customerId);
+            }
 
             return View(new OrderViewModel
             {
@@ -55,8 +63,6 @@ namespace ExoticCars.Controllers
                 Products = products,
                 Extras = extras,
                 Customers = customers,
-                /*OrderProduct = new OrderProduct(),
-                Customer = new Customer()*/
                 OrderProduct = new OrderProduct(),
                 CustomerOrder = new CustomerOrder(),
                 
@@ -74,25 +80,22 @@ namespace ExoticCars.Controllers
             return View();
         }
 
-        public IActionResult Detail(int orderId)
+        public IActionResult Detail(int orderId, int customerId)
         {
             ViewBag.Message = "View Customer Details";
 
             var order = orderRepository.GetOrderById(orderId);
             var orderDetail = orderProductRepository.GetOrderProductDetails(orderId);
             var orderAmount = orderRepository.GetOrderTotal(orderId);
-
-            /*            var extras = orderRepository.GetExtrasByCarOnOrder(orderId, productId);
-            */
-
-
+            var customer = customerRepository.GetCustomerById(order.CustomerID);
             if (order == null)
                 return NotFound();
 
             return View(new OrderViewModel{
                 Order = order,
                 OrderProducts = orderDetail,
-                TotalOrderAmount = orderAmount
+                TotalOrderAmount = orderAmount,
+                Customer = customer
             });
         }
 
@@ -100,8 +103,7 @@ namespace ExoticCars.Controllers
         {
             var productExtras = orderRepository.GetExtrasByCarOnOrder(orderId, productId);
             var order = orderRepository.GetOrderById(orderId);
-            var car = productRepository.GetProductId(productId);
-            
+            var car = productRepository.GetProductId(productId);            
 
             if(productExtras == null)
             {
@@ -134,10 +136,6 @@ namespace ExoticCars.Controllers
         {
             if (productExtras != null)
             {
-                /* var orderToUpdate = orderRepository.GetOrderById(order);*/
-                /*var ordId = orderID;
-                var prodId = productID;*/
-                /*System.Diagnostics.Debug.WriteLine(productExtras);*/
                 orderRepository.AddExtras(productExtras);
 
                 return RedirectToAction("List");
@@ -149,7 +147,6 @@ namespace ExoticCars.Controllers
         public IActionResult OrderDetail(int orderId)
         {
             var orderDetail = orderProductRepository.GetOrderProductDetails(orderId);
-            /*var orderTotal = orderRepository.GetOrderTotal(orderId);*/
             return View(orderDetail);
         }
 
@@ -170,8 +167,7 @@ namespace ExoticCars.Controllers
                         CustomerID = ord.CustomerID,
                         OrderDate = ord.OrderDate,
                         Status = ord.Status,
-                        Comments = ord.Comments,
-                        TotalAmount = ord.TotalAmount
+                        Comments = ord.Comments
                     };
                     break;
                 }
@@ -184,8 +180,6 @@ namespace ExoticCars.Controllers
         {
             if (order != null)
             {
-                /*var orderToUpdate = orderRepository.GetOrderById(order);
-                System.Diagnostics.Debug.WriteLine(orderToUpdate.Status);*/
                 orderRepository.UpdateOrder(order);
 
                 return RedirectToAction("List");
@@ -210,8 +204,7 @@ namespace ExoticCars.Controllers
                         CustomerID = ord.CustomerID,
                         OrderDate = ord.OrderDate,
                         Status = ord.Status,
-                        Comments = ord.Comments,
-                        TotalAmount = ord.TotalAmount
+                        Comments = ord.Comments
                     };
                     break;
                 }

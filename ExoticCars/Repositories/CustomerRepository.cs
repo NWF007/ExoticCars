@@ -56,8 +56,6 @@ namespace ExoticCars.Repositories
 
         public void UpdateCustomer(Customer customer)
         {
-            /*var entity = dbContext.Customers.Attach(customer);*/
-            
             dbContext.Entry(customer).State = EntityState.Modified;
             try
             {
@@ -69,9 +67,5 @@ namespace ExoticCars.Repositories
             }
         }
 
-        /*public Customer GetCustomerByOrderNumber(int orderId)
-        {
-            var customer = dbContext.OrderProducts.Where(o => o.OrderID).Any(e  => e.Customer.Cusomter)
-        }*/
     }
 }

@@ -22,9 +22,6 @@ namespace ExoticCars.Models
         public DateTime OrderDate { get; set; } = DateTime.Now;
         public status Status { get; set; } = status.OrderPlaced;
         public string Comments { get; set; } = "Order was placed successfully";
-        
-
-        public double TotalAmount { get; set; }
 
         public virtual Customer Customer { get; set; }
         public virtual ICollection<OrderProduct> OrderProducts { get; set; }

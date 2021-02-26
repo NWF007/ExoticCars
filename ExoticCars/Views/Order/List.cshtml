@@ -14,11 +14,12 @@
     </div>
 
     <div class="float-right">
-        @*<a asp-controller="Order" asp-action="OrderStatus" asp-route-status="1" class="btn btn-outline-info ml-5">Orders Placed</a>
-        <a asp-controller="Order" asp-action="OrderStatus" asp-route-status="2" class="btn btn-outline-info ml-5">Orders on hold</a>
-        <a asp-controller="Order" asp-action="OrderStatus" asp-route-status="3" class="btn btn-outline-info ml-5">Orders Cancelled</a>
-        <a asp-controller="Order" asp-action="OrderStatus" asp-route-status="4" class="btn btn-outline-info ml-5">Orders Shipped</a>*@
-        <h4 class="ml-5">View by: <span @*asp-route-status="@Model.Order.Status.ToString()"*@> @Html.DropDownListFor(m => Model.Order.Status, Enum.GetNames(typeof(Order.status)).Select(e => new SelectListItem { Text = e }))</span> </h4>
+        
+        <h4 class="ml-5">View by: 
+            <span> 
+                 @Html.DropDownListFor(m => Model.Order.Status, Enum.GetNames(typeof(Order.status)).Select(e => new SelectListItem { Text = e }))
+            </span> 
+        </h4>
     </div>
 </div>
     </div>
@@ -32,10 +33,8 @@
                     <div>
                         <img src="https://img.icons8.com/pastel-glyph/2x/purchase-order.png" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <!--<h4 class="card-title">Order By: ????-->@*@ord.Customer.FirstName @ord.Customer.LastName*@ <!--</h4>-->
                             <p class="card-text">Order Number: @ord.OrderID</p>
                             <p class="card-text">Order Date: @ord.OrderDate</p>
-                            <p class="card-text">Order Amount: R @ord.TotalAmount</p>
                             <div class="row">
                                 <a asp-controller="Order" asp-action="Detail" asp-route-orderId="@ord.OrderID" class="btn btn-danger mr-1 ml-4">Details</a>
                                 <a asp-controller="Order" asp-action="Edit" asp-route-orderId="@ord.OrderID" class="btn btn-info mr-1">Edit</a>

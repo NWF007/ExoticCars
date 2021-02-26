@@ -7,8 +7,7 @@
             <tr>
                 <th class="text-center">Car</th>
                 <th class="text-center"></th>
-                <th class="text-center">Optional Extras</th>
-                @*<th class="text-center">ExtraQuantity</th>*@
+                <th class="text-center"></th>
                 <th class="text-center">Price</th>
             </tr>
         </thead>
@@ -17,9 +16,8 @@
             {
                 <tr>
                     <td class="text-center"><p>@Html.DisplayFor(m => el.Product.Name)</p></td>
-                    <td class="text-center"><p>@*@Html.DisplayFor(m => el.ProductQuantity)*@ <a asp-controller="Order" asp-action="Extras" asp-route-orderID="@el.OrderID" asp-route-productID="@el.ProductID" class="btn btn-info">Add Extras</a></p></td>
+                    <td class="text-center"><p><a asp-controller="Order" asp-action="Extras" asp-route-orderID="@el.OrderID" asp-route-productID="@el.ProductID" class="btn btn-info">Add Extras</a></p></td>
                     <td class="text-center"><p>@Html.DisplayFor(m => el.Extra.ExtraName) </p></td>
-                   @* <td class="text-center"><p>@Html.DisplayFor(m => el.ExtraQuantity)</p></td>*@
                     <td class="text-center"><p>@Html.DisplayFor(m => el.Price)</p></td>
                 </tr>
             }

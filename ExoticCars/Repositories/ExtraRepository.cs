@@ -35,7 +35,6 @@ namespace ExoticCars.Repositories
 
         public void DeleteExtra(Extra extra)
         {
-            /*var extra = GetExtraId(extraId);*/
             if (extra != null)
             {
                 dbContext.Extras.Remove(extra);

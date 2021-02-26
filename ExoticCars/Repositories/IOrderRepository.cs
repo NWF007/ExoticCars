@@ -19,5 +19,7 @@ namespace ExoticCars.Repositories
         IEnumerable<OrderProduct> GetExtrasByCarOnOrder(int orderId, int productId);
 
         double GetOrderTotal(int orderId);
+
+        IEnumerable<Order> GetOrdersByCustomerId(int? customerId);
     }
 }

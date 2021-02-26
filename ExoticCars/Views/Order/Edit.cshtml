@@ -1,7 +1,5 @@
 ﻿@model Order
 
-@*Fix date input field*@
-
 <div class="alert alert-info">
     You are about to update order number @Model.OrderID that was placed on @Model.OrderDate
 </div>
@@ -26,7 +24,6 @@
     <div class="form-group" hidden>
         <label asp-for="OrderDate" class="col-md-2 control-label"></label>
         <div class="col-md-5">
-            @*<input asp-for="OrderDate" class="form-control" value="@Html.EditorFor(m => m.OrderDate)" readonly />*@
             <input type="date" asp-for="OrderDate" class="form-control" value="@Model.OrderDate" readonly />
             <span asp-validation-for="OrderDate" class="text-danger"></span>
         </div>
@@ -56,13 +53,6 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label asp-for="TotalAmount" class="col-md-2 control-label"></label>
-        <div class="col-md-5">
-            <input asp-for="TotalAmount" class="form-control" value="@Model.TotalAmount" readonly />
-            <span asp-validation-for="TotalAmount" class="text-danger"></span>
-        </div>
-    </div>
 
     <div class="form-group">
         <a asp-controller="Order" asp-action="List" class="btn btn-default">Cancel</a>

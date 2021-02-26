@@ -6,7 +6,6 @@
 
     <div class="form-group">
         <label asp-for="Customer.FirstName" class="col-md-2 control-label">Customer Name</label>
-        @*<div class="multiselect">*@
         <div class="col-md-5">
             <select class="form-control" asp-for="Customer.CustomerID" name="CustomerID" required>
                 @foreach (var cus in Model.Customers)
@@ -19,14 +18,12 @@
             </select>
         </div>
         <span asp-validation-for="Customer.FirstName" class="text-danger"></span>
-        @*</div>*@
     </div>
 
     <div class="form-group">
         <label asp-for="Product.Name" class="col-md-2 control-label">Select Car</label>
         <div class="col-md-5">
 
-            @*<select class="form-control" asp-for="Product.ProductID" name="ProductID[]" required>*@
             @foreach (var prod in Model.Products)
             {
                 <div class="checkbox" id="dropdownlist">
@@ -37,17 +34,8 @@
                                name="ProductID[]"
                                value="@prod.ProductID" /> @prod.Name @prod.Model
 
-                            @*<optgroup>
-                                    <option value="@prod.ProductID">
-                                        @prod.Name
-                                    </option>
-                                </optgroup>*@
-                            @*<label><input type="checkbox" value="@prod.ProductID" name="@prod.ProductID" />@prod.Name @prod.Model</label>*@
-
-                            @*</select>*@
                             <span asp-validation-for="Product.Name" class="text-danger"></span>
                         </label>
-                       @* <div id="inputArea"></div>*@
                     </div>
                 }
         </div>
@@ -68,18 +56,3 @@
         </div>
     </div>
 </form>
-
-
-
-@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
-</script>*@
-
-
-<script>
-    $('#dropdownlist').attr('checked', true,);
-@*$("#dropdownlist").change(function () {
-    var numInputs = $(this).val();
-    for (var i = 0; i < numInputs; i++)
-        $("#inputArea").append('<input name="inputs[]" />');
-});*@
-</script>

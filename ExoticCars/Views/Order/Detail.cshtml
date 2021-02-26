@@ -1,13 +1,8 @@
 ﻿@model OrderViewModel
-@*<script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
 
-    <script>
-        $(document).ready(function () {
-            $('#view_extras').('click', function () {
-                $('#extra_table').toggle(2000);
-            });
-        });
-    </script>*@
+    <div class="row mb-2">
+        <h3 class="text-center">Order was placed by @Model.Customer.FirstName @Model.Customer.LastName</h3>
+    </div>
 
 <div class="container">
     <div class="row">
@@ -15,7 +10,6 @@
             <div class="card mr-5" style="width: 20rem;">
                 <img src="https://img.icons8.com/pastel-glyph/2x/purchase-order.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    @*<h4 class="card-title">Order By: @Model.Customer.FirstName</h4>*@
                     <h4>
                         Date: @Model.Order.OrderDate
                     </h4>
@@ -30,10 +24,6 @@
                         <a class="btn btn-primary mr-4"
                            asp-controller="Order"
                            asp-action="List">Back</a>
-                        @*<a class="btn btn-info ml-3"
-                            asp-controller="Order"
-                            asp-action="OrderDetail"
-                            asp-route-orderId="@Model.Order.OrderID">Order Confirmation</a>*@
                     </div>
                 </div>
             </div>
@@ -47,7 +37,6 @@
                         <th class="text-center">Car</th>
                         <th class="text-center"></th>
                         <th class="text-center"></th>
-                        @*<th class="text-center">ExtraQuantity</th>*@
                         <th class="text-center">Price</th>
                     </tr>
                 </thead>
@@ -65,9 +54,6 @@
                                 </p>
                             </td>
                             <td class="text-center">
-
-                                @* <p>@Html.DisplayFor(m => el.Extra.ExtraName) </p>*@
-                                @*<button id="view_extras" class="btn btn-danger">View Extras</button>*@
                                 <p>
                                     <a asp-controller="Order" asp-action="ViewExtras"
                                        asp-route-orderID="@el.OrderID" asp-route-productID="@el.ProductID"
@@ -75,7 +61,6 @@
                                 </p>
 
                             </td>
-                            @* <td class="text-center"><p>@Html.DisplayFor(m => el.ExtraQuantity)</p></td>*@
                             <td class="text-center"><p>@Html.DisplayFor(m => el.Price)</p></td>
                         </tr>
                     }

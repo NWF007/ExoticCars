@@ -45,16 +45,16 @@ namespace ExoticCars.DAL
             modelBuilder.Entity<Customer>().HasData(new Customer { CustomerID = 10, FirstName = "Brian", LastName = "Watson", Phone = "0825585274", Address = "454 Moon Street,Lake Virginia", City = "Prtoria", PostalCode = "8954" });
 
             // seed orders
-            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 1, CustomerID = 1, OrderDate = DateTime.Parse("2020-09-01"), Status = Order.status.OrderOnHold, Comments = "Order on hold for customer. Credit check in progress", TotalAmount = 960000 });
-            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 2, CustomerID = 3, OrderDate = DateTime.Parse("2020-10-12"), Status = Order.status.OrderPlaced, Comments = "Customer wating for optional extra", TotalAmount = 545000 });
-            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 3, CustomerID = 4, OrderDate = DateTime.Parse("2020-08-15"), Status = Order.status.OrderShipped, Comments = "Car shipped from manufaturer" , TotalAmount = 270000 });
-            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 4, CustomerID = 6, OrderDate = DateTime.Parse("2020-07-03"), Status = Order.status.OrderOnHold, Comments = "Order on hold for customer. Credit check in progress", TotalAmount = 157000 });
-            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 5, CustomerID = 7, OrderDate = DateTime.Parse("2020-05-14"), Status = Order.status.OrderPlaced, Comments = "Car shipped from manufaturer" , TotalAmount = 754000});
-            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 6, CustomerID = 9, OrderDate = DateTime.Parse("2020-03-17"), Status = Order.status.OrderPlaced, Comments = "Car shipped from manufaturer", TotalAmount = 377000 });
-            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 7, CustomerID = 9, OrderDate = DateTime.Parse("2020-03-17"), Status = Order.status.OrderPlaced, Comments = "Car shipped from manufaturer", TotalAmount = 377000 });
-            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 8, CustomerID = 9, OrderDate = DateTime.Parse("2020-03-17"), Status = Order.status.OrderPlaced, Comments = "Car shipped from manufaturer", TotalAmount = 377000 });
-            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 9, CustomerID = 9, OrderDate = DateTime.Parse("2020-03-17"), Status = Order.status.OrderPlaced, Comments = "Car shipped from manufaturer", TotalAmount = 377000 });
-            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 10, CustomerID = 9, OrderDate = DateTime.Parse("2020-03-17"), Status = Order.status.OrderPlaced, Comments = "Car shipped from manufaturer", TotalAmount = 377000 });
+            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 1, CustomerID = 1, OrderDate = DateTime.Parse("2020-09-01"), Status = Order.status.OrderOnHold, Comments = "Order on hold for customer. Credit check in progress" });
+            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 2, CustomerID = 3, OrderDate = DateTime.Parse("2020-10-12"), Status = Order.status.OrderPlaced, Comments = "Customer wating for optional extra" });
+            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 3, CustomerID = 4, OrderDate = DateTime.Parse("2020-08-15"), Status = Order.status.OrderShipped, Comments = "Car shipped from manufaturer"});
+            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 4, CustomerID = 6, OrderDate = DateTime.Parse("2020-07-03"), Status = Order.status.OrderOnHold, Comments = "Order on hold for customer. Credit check in progress" });
+            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 5, CustomerID = 7, OrderDate = DateTime.Parse("2020-05-14"), Status = Order.status.OrderPlaced, Comments = "Car shipped from manufaturer"});
+            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 6, CustomerID = 9, OrderDate = DateTime.Parse("2020-03-17"), Status = Order.status.OrderPlaced, Comments = "Car shipped from manufaturer" });
+            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 7, CustomerID = 9, OrderDate = DateTime.Parse("2020-03-17"), Status = Order.status.OrderPlaced, Comments = "Car shipped from manufaturer" });
+            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 8, CustomerID = 9, OrderDate = DateTime.Parse("2020-03-17"), Status = Order.status.OrderPlaced, Comments = "Car shipped from manufaturer" });
+            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 9, CustomerID = 9, OrderDate = DateTime.Parse("2020-03-17"), Status = Order.status.OrderPlaced, Comments = "Car shipped from manufaturer" });
+            modelBuilder.Entity<Order>().HasData(new Order { OrderID = 10, CustomerID = 9, OrderDate = DateTime.Parse("2020-03-17"), Status = Order.status.OrderPlaced, Comments = "Car shipped from manufaturer"});
 
 
             // seed products

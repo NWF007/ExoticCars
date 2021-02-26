@@ -14,9 +14,5 @@ namespace ExoticCars.Repositories
         void DeleteCustomer(Customer customer);
         bool CustomerExists(int orderId);
         IEnumerable<Customer> GetCustomers { get; }
-
-        /*Customer GetCustomerByOrderNumber(int orderId);*/
-
-        
     }
 }
