@@ -62,7 +62,7 @@ namespace ExoticCars.Repositories
 
         public IEnumerable<OrderProduct> GetExtrasByCarOnOrder(int orderId, int productId)
         {
-            var extras = dbContext.OrderProducts.Where(o => (o.OrderID == orderId) && (o.ProductID == productId));
+            IEnumerable<OrderProduct> extras = dbContext.OrderProducts.Where(o => o.OrderID == orderId).Where(o => o.ProductID == productId).Include(o => o.Extra).ToList();
 
             return extras;
         }
@@ -77,14 +77,12 @@ namespace ExoticCars.Repositories
             return dbContext.Orders.Where(c => c.Status.Equals(status));
         }
 
-       /* public int? GetOrderTotal(int orderId)
+        public double GetOrderTotal(int orderId)
         {
-            var total = dbContext.OrderProducts.Where(o => o.OrderID == orderId)
-                .Select(c => c.ProductQuantity * c.Product.SellingPrice + c.ExtraQuantity * c.Extra.ExtraPrice)
-                .Sum();
+            double sum = dbContext.OrderProducts.Where(o => o.OrderID == orderId).Select(o => o.Price).Sum();
 
-            return total;
-        }*/
+            return sum;
+        }
 
         public void PlaceOrder(CustomerOrder customerOrder)
         {

@@ -1,0 +1,26 @@
+﻿@model OrderViewModel
+
+<h3>Extras for @Model.Product.Name @Model.Product.Model</h3>
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th class="text-center">Extra</th>
+            <th class="text-center">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ex in Model.OrderProducts)
+        {
+            <tr>
+                <td class="text-center"><p>@Html.DisplayFor(m => ex.Extra.ExtraName)</p></td>
+                <td class="text-center"><p>@Html.DisplayFor(m => ex.Extra.ExtraPrice)</p></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Order" asp-action="Detail"
+   asp-route-orderID="@Model.Order.OrderID"
+   class="btn btn-danger">Back to order</a>

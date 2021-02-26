@@ -26,9 +26,7 @@ namespace ExoticCars.Repositories
 
         public List<OrderProduct> GetOrderProductDetails(int orderId)
         {
-            List<OrderProduct> orderDetailList = dbContext.OrderProducts.Where(o => o.OrderID == orderId).Include(o => o.Extra).Include(o => o.Product)/*.Select(o => new OrderProduct {
-               Price = o.Price
-            })*/.ToList();
+            List<OrderProduct> orderDetailList = dbContext.OrderProducts.Where(o => o.OrderID == orderId).Include(o => o.Extra).Include(o => o.Product).ToList();
 
             return orderDetailList;
         }

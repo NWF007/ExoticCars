@@ -80,17 +80,38 @@ namespace ExoticCars.Controllers
 
             var order = orderRepository.GetOrderById(orderId);
             var orderDetail = orderProductRepository.GetOrderProductDetails(orderId);
+            var orderAmount = orderRepository.GetOrderTotal(orderId);
 
-/*            var extras = orderRepository.GetExtrasByCarOnOrder(orderId, productId);
-*/
-            
+            /*            var extras = orderRepository.GetExtrasByCarOnOrder(orderId, productId);
+            */
+
 
             if (order == null)
                 return NotFound();
 
             return View(new OrderViewModel{
                 Order = order,
-                OrderProducts = orderDetail
+                OrderProducts = orderDetail,
+                TotalOrderAmount = orderAmount
+            });
+        }
+
+        public IActionResult ViewExtras(int orderId, int productId)
+        {
+            var productExtras = orderRepository.GetExtrasByCarOnOrder(orderId, productId);
+            var order = orderRepository.GetOrderById(orderId);
+            var car = productRepository.GetProductId(productId);
+            
+
+            if(productExtras == null)
+            {
+                return NotFound();
+            }
+
+            return View(new OrderViewModel { 
+                OrderProducts = productExtras,
+                Order = order,
+                Product  = car
             });
         }
 
